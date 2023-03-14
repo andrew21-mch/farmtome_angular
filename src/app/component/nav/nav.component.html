@@ -1,0 +1,39 @@
+<header class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light text-light">
+    <a class="navbar-brand" href="index.html"><img
+        class="w-75 h-75"
+        src="../../../assets/images/Logo 19.png"
+        alt="logo"
+        /></a>
+    <button
+      class="navbar-toggler d-lg-none"
+      type="button"
+      data-toggle="collapse"
+      data-target="#oneseedNav"
+      aria-controls="oleezMainNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="oneseedNav">
+      <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+        <li class="nav-item ">
+          <a class="nav-link active text-white fs-5 "  routerLink="/login" routerLinkActive="active"  ariaCurrentWhenActive="page">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fs-5 "  routerLink="/login"  ariaCurrentWhenActive="page">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white fs-5 "  routerLink="/login" ariaCurrentWhenActive="page">Customer</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-none d-lg-flex">
+        <a class="py-1 btn btn-warning btn-md"  routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+        <div class="pl-2">
+          <a class="py-1 btn btn-warning btn-md"  routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+        </div>
+      </ul>
+    </div>
+  </nav>
+</header>
+<router-outlet></router-outlet>
