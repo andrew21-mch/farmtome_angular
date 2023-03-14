@@ -3,8 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const auth_route = 'http://localhost:8000/api/v1/auth/';
+const logout_route = 'http://localhost:8000/api/v1/users/';
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders(
+    {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+     }
+    )
 };
 
 @Injectable({
@@ -43,7 +49,23 @@ export class AuthServiceService {
   }
 
   logout(): Observable<any> {
-    return this.http.post(auth_route + 'signout', { }, httpOptions);
+    return this.http.post(logout_route + 'logout',
+      {
+        token: localStorage.getItem('token')
+      },
+      // add token to header
+      httpOptions
+    );
   }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return token ? true : false;
+  }
+
+  currentUser(): any {
+    return this.isAuthenticated() ? localStorage.getItem('token') : null;
+  }
+
 
 }

@@ -1,3 +1,5 @@
+import { BodyComponent } from './../component/body/body.component';
+import { Route, Router, RouterLink } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from '../auth-service.service';
 
@@ -16,7 +18,10 @@ export class LoginComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthServiceService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthServiceService,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +32,11 @@ export class LoginComponent implements OnInit {
       next: data => {
         console.log(data);
         this.isSuccessful = true;
-
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        this.router.navigateByUrl('/dashboard')
         this.isSignUpFailed = false;
       },
       error: err => {
@@ -36,6 +45,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
 
 
   }
