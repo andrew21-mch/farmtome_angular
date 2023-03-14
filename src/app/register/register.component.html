@@ -1,61 +1,157 @@
 <!--  include the css file -->
 <link rel="stylesheet" href="register.component.css" />
 <!-- register form -->
-<div class="card-body row col-8 m-auto mb-5" id="register">
+<div class="card-body row col-6 m-auto mb-5">
   <h3 class="card-title text-center">Register</h3>
-  <form>
+  <form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
     <!-- name -->
     <div class="form-group">
       <label for="name">Name</label>
       <input
         type="text"
         class="form-control"
-        id="name"
-        placeholder="Enter name"
-      />
+        name="name"
+        [(ngModel)]="form.name"
+        required
+        minlength="3"
+        maxlength="20"
+        #name="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="name.errors && f.submitted">
+        <div *ngIf="name.errors['required']">Name is required</div>
+        <div *ngIf="name.errors['minlength']">
+          name must be at least 3 characters
+        </div>
+        <div *ngIf="name.errors['maxlength']">
+          name must be at most 20 characters
+        </div>
+      </div>
     </div>
-    <!-- email -->
+
     <div class="form-group">
       <label for="email">Email</label>
       <input
         type="email"
         class="form-control"
-        id="email"
-        placeholder="Enter email"
-      />
+        name="email"
+        [(ngModel)]="form.email"
+        required
+        minlength="3"
+        maxlength="20"
+        #email="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+        <div *ngIf="email.errors['required']">Email is required</div>
+        <div *ngIf="email.errors['email']">
+          Email must be a valid email address
+        </div>
+      </div>
     </div>
     <!-- phone -->
     <div class="form-group">
       <label for="phone">Phone</label>
       <input
-        type="phone"
+        type="text"
         class="form-control"
-        id="phone"
-        placeholder="Enter phone"
-      />
+        name="phone"
+        [(ngModel)]="form.phone"
+        required
+        minlength="3"
+        maxlength="20"
+        #phone="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && phone.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="phone.errors && f.submitted">
+        <div *ngIf="phone.errors['required']">Phone Number is required</div>
+        <div *ngIf="phone.errors['phone']">
+          Phone Number is requred
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input
+        type="text"
+        class="form-control"
+        name="location"
+        [(ngModel)]="form.location"
+        required
+        minlength="3"
+        maxlength="20"
+        #location="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && phone.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="location.errors && f.submitted">
+        <div *ngIf="location.errors['required']">Phone Number is required</div>
+        <div *ngIf="location.errors['location']">
+          Location can not be null
+        </div>
+      </div>
+
     </div>
     <div class="form-group">
       <label for="password">Password</label>
       <input
         type="password"
         class="form-control"
-        id="password"
-        placeholder="Password"
-      />
+        name="password"
+        [(ngModel)]="form.password"
+        required
+        minlength="3"
+        maxlength="20"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors['required']">Password is required</div>
+        <div *ngIf="password.errors['minlength']">
+          Password must be at least 6 characters
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="confirmPassword">Confirm Password</label>
+      <label for="password_repeat">Confirm Password</label>
       <input
         type="password"
         class="form-control"
-        id="confirmPassword"
-        placeholder="Confirm Password"
-      />
+        name="password_repeat"
+        [(ngModel)]="form.password_repeat"
+        required
+        minlength="3"
+        maxlength="20"
+        #password_repeat="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && password_repeat.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="password_repeat.errors &&
+        f.submitted">
+        <div *ngIf="password_repeat.errors['required']">Password repeat is
+          required</div>
+        <div *ngIf="password_repeat.errors['minlength']">
+          Password must be at least 6 characters
+        </div>
+      </div>
     </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="rememberMe" />
-      <label class="form-check-label" for="rememberMe">Remember me</label>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">Sign Up</button>
     </div>
-    <button type="submit" class="btn btn-primary float-right">Register</button>
+
+    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+      Signup failed!<br />{{ errorMessage }}
+    </div>
   </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Your registration is successful!
+  </div>
+</div>
+
 <router-outlet></router-outlet>
