@@ -1,3 +1,5 @@
 .warning{
-background-color: #0d1f0b;
+background-color: #3d826d;
+/* border to color to tranparent */
+border-color: transparent;
 }

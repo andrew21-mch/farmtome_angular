@@ -7,3 +7,14 @@
     color: antiquewhite;
   }
 }
+
+.btn-warning {
+  background-color: #3d826d;
+  border-color: transparent;
+}
+.btn-primary {
+  background-color: #3d826d;
+  /* border to color to tranparent */
+  border-color: transparent;
+}
+

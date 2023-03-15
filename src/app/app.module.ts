@@ -29,7 +29,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // date picker modul
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

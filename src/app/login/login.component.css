@@ -1,0 +1,9 @@
+.btn-primary {
+  background-color: #3d826d;
+  /* border to color to tranparent */
+  border-color: transparent;
+}
+
+.text_warning {
+  color:  #3d826d;
+}
