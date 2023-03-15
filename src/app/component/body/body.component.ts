@@ -1,5 +1,8 @@
+import { SupplyShopService } from './../../supply-shop.service';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FarmService } from 'src/app/farm.service';
 
 @Component({
   selector: 'app-body',
@@ -10,6 +13,9 @@ export class BodyComponent implements OnInit {
   closeResult = '';
   constructor(
     private readonly  modalService: NgbModal,
+    private readonly farmService: FarmService,
+    private readonly shopService: SupplyShopService,
+    private readonly router: Router,
   ) { }
 
 
@@ -48,4 +54,12 @@ export class BodyComponent implements OnInit {
 		}
 	}
 
+  createFarm(){
+    // route to create farm
+    return this.router.navigate(['/create_farm']);
+  }
+
+  createShop(){
+    return this.router.navigate(['/create_shop'])
+  }
 }

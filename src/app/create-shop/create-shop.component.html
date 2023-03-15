@@ -1,0 +1,92 @@
+<!--  include the css file -->
+<link rel="stylesheet" href="create-shop.component.css" />
+<!-- register form -->
+<div class="card-body row col-6 m-auto mb-5">
+  <h3 class="card-title text-center">Create Shop</h3>
+  <hr class="w-25 m-auto">
+  <form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onSubmit()"
+    #f="ngForm"
+    novalidate>
+    <!-- name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="form.name"
+        required
+        minlength="3"
+        maxlength="20"
+        #name="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="name.errors && f.submitted">
+        <div *ngIf="name.errors['required']">Name is required</div>
+        <div *ngIf="name.errors['minlength']">
+          name must be at least 3 characters
+        </div>
+        <div *ngIf="name.errors['maxlength']">
+          name must be at most 20 characters
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Location</label>
+      <input
+        type="location"
+        class="form-control"
+        name="location"
+        [(ngModel)]="form.location"
+        required
+        minlength="3"
+        maxlength="20"
+        #location="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && location.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="location.errors && f.submitted">
+        <div *ngIf="location.errors['required']">Location is required</div>
+        <div *ngIf="location.errors['location']">
+          Farm Location is Required
+        </div>
+      </div>
+    </div>
+    <!-- phone -->
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        type="file"
+        class="form-control"
+        name="image"
+        [(ngModel)]="form.image"
+        required
+        #image="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && image.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="image.errors && f.submitted">
+        <div *ngIf="image.errors['required']">Image is required</div>
+        <div *ngIf="image.errors['image']">
+          {{ image.errors['image'] }}
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">Create Supply Shop</button>
+    </div>
+
+    <div class="alert alert-warning" *ngIf="f.submitted && isCreatedFailed">
+      Shop creation failed!<br />{{ errorMessage }}
+    </div>
+  </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Farm created successfully !
+  </div>
+</div>
+
+<router-outlet></router-outlet>

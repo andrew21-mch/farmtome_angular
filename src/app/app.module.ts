@@ -13,6 +13,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateFarmComponent } from './create-farm/create-farm.component';
+import { CreateShopComponent } from './create-shop/create-shop.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterComponent,
     PageNotFoundComponent,
     DashboardComponent,
+    CreateFarmComponent,
+    CreateShopComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    // date picker modul
     NgbModule,
   ],
   providers: [],

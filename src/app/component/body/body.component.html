@@ -44,7 +44,9 @@
           <!-- button to create farm or shop -->
           <div class="well well-sm">
             <!-- modal to create farm -->
-            <button class="btn btn-primary mb-5" data-toggle="modal" (click)="open(content)">Create Your own Farm</button>
+            <button class="btn btn-primary mb-5" data-toggle="modal"
+              (click)="createFarm()">Create Your own farm
+          </button>
           </div>
         </div>
       </div>
@@ -124,7 +126,8 @@
         <div *ngIf="isLoggedIn()">
           <!-- button to create farm or shop -->
           <div class="well well-sm">
-            <button class="btn btn-primary mb-5" data-toggle="modal" data-target="#CreateShopModal">Create your own shop</button>
+            <button class="btn btn-primary mb-5"
+            (click)="createShop()">Create your own shop</button>
           </div>
         </div>
       </div>
