@@ -1,3 +1,4 @@
+import { AuthServiceService } from './../../auth-service.service';
 import { SupplyShopService } from './../../supply-shop.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,9 +14,8 @@ export class BodyComponent implements OnInit {
   closeResult = '';
   constructor(
     private readonly  modalService: NgbModal,
-    private readonly farmService: FarmService,
-    private readonly shopService: SupplyShopService,
     private readonly router: Router,
+    private readonly authService: AuthServiceService
   ) { }
 
 
@@ -25,8 +25,14 @@ export class BodyComponent implements OnInit {
   getUserName(): any {
     const user =  localStorage.getItem('user');
     // return the name field of the user object
-    return user ? JSON.parse(user).name : '';
+    // split the string to get the nam
+    if(user){
+      return JSON.parse(user).name.split(' ')[0]
+    }
+    return ''
   }
+
+
 
   isLoggedIn(): boolean {
     return localStorage.getItem('token')? true: false
@@ -61,5 +67,20 @@ export class BodyComponent implements OnInit {
 
   createShop(){
     return this.router.navigate(['/create_shop'])
+  }
+
+  checkRole(role: string){
+    // extract the roles object from the user object
+    const user =  localStorage.getItem('user');
+    // return the name field of the user role
+    // for each of the roles, return the name field
+    var roles = []
+    if(user){
+      var userRoles = JSON.parse(user).roles
+      for(var i = 0; i < userRoles.length; i++){
+        roles.push(userRoles[i].name)
+      }
+    }
+    return roles.includes(role)
   }
 }

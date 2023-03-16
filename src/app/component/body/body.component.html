@@ -1,26 +1,33 @@
 <Section class="miri-ui-kit-section team-members-section">
   <div class="container">
     <div class="row" *ngIf="isLoggedIn()">
-      <div class="col-md-12 mt-5">
-          <p class="text-success">Welcome {{ getUserName()}}!</p>
-          <hr class="w-25">
+      <div class="col-md-12 mt-3">
+
+        <p class="text-danger">Welcome {{ getUserName()}}! </p>
+        <hr class="w-25">
       </div>
     </div>
-
-    <!-- check if the user just logged in-->
-
-    <!-- div to display purpose of webapp -->
-    <div class="hero-content mt-5 mb-5 text-center">
+    <div class="hero-content mt-2 mb-5 text-center">
       <h1 class="hero-title">Welcome to <span class="text_warning">Farmers
           Market</span></h1>
-      <p class="hero-text">We are a platform that connects farmers to customers
+      <p class="hero-text">We are a platform that connects farmers to
+        customers
         and suppliers</p>
     </div>
+
+    <div class="row justify-content-center mb-4">
+
+      <button *ngIf="checkRole('farmer')" class="btn btn-primary col-md-2 m-2">
+         View
+        Farms</button>
+      <button *ngIf="checkRole('supplier')" class="btn btn-primary col-md-2 m-2">View
+        Shops</button>
+    </div>
+
     <div class="row">
       <div class="col-md-12">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search for
-            products" aria-label="Recipient's username"
+          <input type="text" class="form-control" placeholder="Search for products" aria-label="Recipient's username"
             aria-describedby="button-addon2">
           <div class="input-group-append">
             <button class="btn btn-warning" type="button" id="button-addon2">Search</button>
@@ -46,7 +53,7 @@
             <!-- modal to create farm -->
             <button class="btn btn-primary mb-5" data-toggle="modal"
               (click)="createFarm()">Create Your own farm
-          </button>
+            </button>
           </div>
         </div>
       </div>
@@ -55,7 +62,8 @@
       <div class="col-md-4 raise-on-hover">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 8.png" alt="team member">
+            <img src="../../../assets/images/Rectangle 8.png" alt="team
+              member">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">Green Beans</h3>
@@ -75,7 +83,8 @@
       <div class="col-md-4 raise-on-hover">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team member">
+            <img src="../../../assets/images/Rectangle 9.png" alt="team
+              member">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">Tomatos</h3>
@@ -95,7 +104,8 @@
       <div class="col-md-4 raise-on-hover">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team member">
+            <img src="../../../assets/images/Rectangle 9.png" alt="team
+              member">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">Njama Njama</h3>
@@ -127,7 +137,7 @@
           <!-- button to create farm or shop -->
           <div class="well well-sm">
             <button class="btn btn-primary mb-5"
-            (click)="createShop()">Create your own shop</button>
+              (click)="createShop()">Create your own shop</button>
           </div>
         </div>
       </div>
@@ -136,7 +146,8 @@
       <div class="col-md-4 raise-on-hover">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 8.png" alt="team member">
+            <img src="../../../assets/images/Rectangle 8.png" alt="team
+              member">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">Affordable Hoes</h3>
@@ -156,7 +167,8 @@
       <div class="col-md-4 raise-on-hover">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team member">
+            <img src="../../../assets/images/Rectangle 9.png" alt="team
+              member">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">One in a Life time fertilizers</h3>
@@ -176,7 +188,8 @@
       <div class="col-md-4 raise-on-hover">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team member">
+            <img src="../../../assets/images/Rectangle 9.png" alt="team
+              member">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">Marchette</h3>
@@ -199,33 +212,35 @@
 
   <!-- modals -->
   <ng-template #content let-modal>
-	<div class="modal-header">
-		<h4 class="modal-title" id="modal-basic-title">Create Farm</h4>
-		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-	</div>
-	<div class="modal-body">
-		<form>
-			<div class="mb-3">
-				<label for="dateOfBirth">Date of birth</label>
-				<div class="input-group">
-					<input
-						id="dateOfBirth"
-						class="form-control"
-						placeholder="yyyy-mm-dd"
-						name="dp"
-					/>
-				</div>
-			</div>
-		</form>
-	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-	</div>
-</ng-template>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Create Farm</h4>
+      <button type="button" class="btn-close" aria-label="Close"
+        (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="dateOfBirth">Date of birth</label>
+          <div class="input-group">
+            <input
+              id="dateOfBirth"
+              class="form-control"
+              placeholder="yyyy-mm-dd"
+              name="dp"
+              />
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark"
+        (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
 
 
-<hr />
+  <hr />
 
-<pre>{{ closeResult }}</pre>
+  <pre>{{ closeResult }}</pre>
 </Section>
 <router-outlet></router-outlet>

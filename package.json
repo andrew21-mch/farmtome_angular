@@ -19,6 +19,8 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
+    "@cloudinary/ng": "^1.11.1",
+    "@cloudinary/url-gen": "^1.9.2",
     "@ng-bootstrap/ng-bootstrap": "^12.1.2",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",

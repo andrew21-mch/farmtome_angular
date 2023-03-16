@@ -1,5 +1,6 @@
 import { FarmService } from './../farm.service';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-farm',
@@ -8,35 +9,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateFarmComponent implements OnInit {
 
-  constructor(private farmService: FarmService) { }
+  constructor(
+    private farmService: FarmService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
   }
 
-
   form: any = {
     name: null,
-    image: null,
     location: null,
+    image: null,
   };
+
+  fileName = '';
   isSuccessful = false;
   isCreatedFailed = false;
   errorMessage = '';
 
-
-  onSubmit(): void {
-    const { name, location, image} = this.form;
-    this.farmService.create(name,location, image).subscribe({
-      next: data => {
-        console.log(data);
+  onsubmitCreate(): void {
+    this.farmService.create(this.form.name, this.form.location, this.form.image).subscribe(
+      data => {
         this.isSuccessful = true;
         this.isCreatedFailed = false;
       },
-      error: err => {
-        this.errorMessage = err.error;
+      err => {
+        this.errorMessage = err.error.message;
         this.isCreatedFailed = true;
       }
-    });
-  }
+    );
 
+  }
 }

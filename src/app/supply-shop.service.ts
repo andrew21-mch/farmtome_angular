@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const farm_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/farms/' : 'http://localhost:8000/api/v1/farms/';
+const farm_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/supply_shops/' : 'http://localhost:8000/api/v1/supply_shops/';
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -25,7 +25,7 @@ export class SupplyShopService {
 
   create(name: string, location: string, image: string): Observable<any> {
     return this.http.post(
-      farm_route + 'create',
+      farm_route ,
       {
         name,
         location,

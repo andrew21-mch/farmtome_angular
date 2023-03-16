@@ -1,3 +1,4 @@
+import { CloudinaryModule } from '@cloudinary/ng';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -26,8 +27,9 @@ export class FarmService {
   ) { }
 
   create(name: string, location: string, image: string): Observable<any> {
+    console.log(name, location, image);
     return this.http.post(
-      farm_route + 'create',
+      farm_route,
       {
         name,
         location,
@@ -66,4 +68,5 @@ export class FarmService {
       httpOptions
     );
   }
+
 }

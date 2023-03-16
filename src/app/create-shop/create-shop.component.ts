@@ -16,7 +16,6 @@ export class CreateShopComponent implements OnInit {
 
   form: any = {
     name: null,
-    image: null,
     location: null,
   };
   isSuccessful = false;
