@@ -64,4 +64,13 @@ export class SupplyShopService {
       httpOptions
     );
   }
+
+  getUserShops() {
+    return this.http.get(
+      farm_route + 'user_shops',
+      httpOptions
+    );
+  }
+
+
 }
