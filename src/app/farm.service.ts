@@ -1,3 +1,4 @@
+import { Farm } from './models/farm';
 import { CloudinaryModule } from '@cloudinary/ng';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -26,6 +27,7 @@ export class FarmService {
     private readonly http: HttpClient,
   ) { }
 
+   farms: Farm | undefined
   create(name: string, location: string, image: string): Observable<any> {
     console.log(name, location, image);
     return this.http.post(
@@ -69,4 +71,17 @@ export class FarmService {
     );
   }
 
+  getAllFarms(): Observable<any> {
+    return this.http.get(
+      farm_route + 'all',
+      httpOptions
+    );
+  }
+
+  getUserFarms() {
+    return this.http.get(
+      farm_route + 'user/' + localStorage.getItem('id'),
+      httpOptions
+    )
+  }
 }

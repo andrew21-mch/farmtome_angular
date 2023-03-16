@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateFarmComponent } from './create-farm/create-farm.component';
 import { CreateShopComponent } from './create-shop/create-shop.component';
+import { ProductsComponent } from './products/products.component';
+import { FarmsComponent } from './farms/farms.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CreateShopComponent } from './create-shop/create-shop.component';
     DashboardComponent,
     CreateFarmComponent,
     CreateShopComponent,
+    ProductsComponent,
+    FarmsComponent,
   ],
   imports: [
     BrowserModule,

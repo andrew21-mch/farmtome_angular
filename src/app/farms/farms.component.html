@@ -1,0 +1,30 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title text-center">Farms</h3>
+  </div>
+  <div class="card-body">
+    <!-- show farms on cards -->
+    <div class="row">
+      <div class="col-md-4" *ngFor="let farm of farms">
+        <div class="card shadow">
+          <div class="card-body">
+            <!-- image -->
+            <img src="../../../assets/images/Rectangle 9.png" alt="farm image" class="img-fluid">
+            <h5 class="card-title">{{ farm.name }}</h5>
+            <p class="card-text">{{ farm.location }}</p>
+            <a [routerLink]="['/farms', farm.id]" class="">
+              <i class="fas fa-eye "></i>
+            </a>
+            <a [routerLink]="['/farms', farm.id, 'edit']" class="">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="" (click)="deleteFarm(farm.id)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

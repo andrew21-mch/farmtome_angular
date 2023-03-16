@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
         localStorage.setItem('token', data.token);
+        localStorage.setItem('id', data.user.id);
         localStorage.setItem('user', JSON.stringify(data.user));
         this.router.navigateByUrl('/dashboard')
         this.isSignUpFailed = false;
