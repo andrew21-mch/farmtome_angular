@@ -5,48 +5,52 @@
         src="../../../assets/images/logo3.png"
         alt="logo"
         /></a>
-    <button
-      class="navbar-toggler d-lg-none"
-      type="button"
-      data-toggle="collapse"
-      data-target="#oneseedNav"
-      aria-controls="oleezMainNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button class="navbar-toggler float-right" type="button" (click)="toggleNavbar=
+      !toggleNavbar" data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle
+      navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="oneseedNav">
+    <div class="collapse navbar-collapse" id="navbarColor01"
+      [ngbCollapse]="toggleNavbar">
       <ul class="navbar-nav mr-auto">
         <li *ngIf="isAuthenticated()" class="fs-3 float-left">
-          <a class="nav-link text-green fs-5"  routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
+          <a class="nav-link text-green fs-5" routerLink="/dashboard"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link text-white fs-7 "  routerLink="/products" routerLinkActive="active"  ariaCurrentWhenActive="page">Products</a>
+          <a class="nav-link text-white fs-7 " routerLink="/products"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white fs-7 "  routerLink="/inputs" routerLinkActive="active"  ariaCurrentWhenActive="page">Inputs</a>
+          <a class="nav-link text-white fs-7 " routerLink="/inputs"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Inputs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white fs-7 "  routerLink="/farms" routerLinkActive="active"  ariaCurrentWhenActive="page">Farms</a>
+          <a class="nav-link text-white fs-7 " routerLink="/farms"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Farms</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto mt-2 mt-md-0">
         <div *ngIf="isAuthenticated()">
           <div class="pr-2">
-            <a class="py-1 btn btn-warning btn-md"  routerLinkActive="active" ariaCurrentWhenActive="page" (click)="logout()">Logout</a>
+            <a class="py-1 btn btn-warning btn-md" routerLinkActive="active"
+              ariaCurrentWhenActive="page" (click)="logout()">Logout</a>
           </div>
         </div>
         <!-- if the user is not logged in, show login and register -->
         <div *ngIf="!isAuthenticated()" class="d-flex">
           <div class="pr-2">
-            <a class="py-1 btn btn-warning btn-sm"  routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+            <a class="py-1 btn btn-warning btn-sm" routerLink="/login"
+              routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
           </div>
           <div class="pl-2">
-            <a class="py-1 btn btn-warning btn-sm"  routerLink="/register" routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+            <a class="py-1 btn btn-warning btn-sm" routerLink="/register"
+              routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
           </div>
         </div>
-        </ul>
+      </ul>
     </div>
   </nav>
 </header>
