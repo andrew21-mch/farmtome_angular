@@ -15,13 +15,15 @@ export class SupplyShopsComponent implements OnInit {
   shops: any = [];
 
   ngOnInit(): void {
+    this.getUserShops();
   }
 
   getUserShops() {
     const shops = this.shopService.getUserShops().subscribe(
       (res) => {
+        console.log(res);
         this.shops = res;
-        this.shops = this.shops.shops;
+        this.shops = this.shops.supplyShops;
       },
     );
   }
