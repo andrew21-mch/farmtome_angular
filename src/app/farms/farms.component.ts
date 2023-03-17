@@ -15,6 +15,8 @@ export class FarmsComponent implements OnInit {
   ) { }
 
   farms: any = [];
+  message: string = '';
+  isSuccessful: boolean = false
 
   ngOnInit(): void {
     this.getUserFarms();
@@ -31,6 +33,13 @@ export class FarmsComponent implements OnInit {
   }
 
   deleteFarm(id: string){
-    console.log(id);
+    return this.farmService.delete(id).subscribe(
+      (res) => {
+        this.isSuccessful = true;
+        this.message = res.message;
+        this.getUserFarms();
+      }
+    );
   }
+
 }

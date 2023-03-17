@@ -4,11 +4,6 @@
 
 export const environment = {
   production: false,
-  cloudinary: {
-    cloud_name: "skye8",
-    api_key: "585839713319769",
-    api_secret: "IXr8OtyXS79SHNgadOHzrCPNo1I"
-  }
 };
 
 /*

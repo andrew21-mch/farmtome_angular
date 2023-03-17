@@ -19,12 +19,15 @@
             <a [routerLink]="['/farms', farm.id, 'edit']" class="">
               <i class="fas fa-edit "></i>
             </a>
-            <a class="" (click)="deleteFarm(farm.id)">
+            <button class="" (click)="deleteFarm(farm.id)" href="#">
               <i class="fas fa-trash"></i>
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="alert alert-primary w-25" *ngIf="isSuccessful">
+    {{ message }}
   </div>
 </div>

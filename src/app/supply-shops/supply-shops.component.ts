@@ -7,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./supply-shops.component.css']
 })
 export class SupplyShopsComponent implements OnInit {
+  message: any;
 
   constructor(
     private shopService: SupplyShopService,
   ) { }
 
   shops: any = [];
-
+  isSuccessful: boolean = false
   ngOnInit(): void {
     this.getUserShops();
   }
@@ -28,7 +29,13 @@ export class SupplyShopsComponent implements OnInit {
     );
   }
   deleteshop(id: string) {
-    console.log(id);
+    return this.shopService.delete(id).subscribe(
+      (res) => {
+        this.isSuccessful = true;
+        this.message = res.message;
+        this.getUserShops();
+      }
+    );
   }
 
 }

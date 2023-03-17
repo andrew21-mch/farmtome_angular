@@ -48,11 +48,10 @@ export class SupplyShopService {
   }
 
   delete(id: string): Observable<any> {
-    return this.http.post(
-      shop_route + 'delete/' + id,
-      {
-        id,
-      },
+    return this.http.delete(
+      environment.production ?
+      shop_route + '/' + id :
+      shop_route + id,
       httpOptions
     );
   }
@@ -66,6 +65,8 @@ export class SupplyShopService {
 
   getUserShops() {
     return this.http.get(
+      environment.production ?
+      shop_route +  '/user/' + localStorage.getItem('id') :
       shop_route + 'user/' + localStorage.getItem('id'),
       httpOptions
     );

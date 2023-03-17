@@ -27,7 +27,7 @@ export class FarmService {
     private readonly http: HttpClient,
   ) { }
 
-   farms: Farm | undefined
+  farms: Farm | undefined
   create(name: string, location: string, image: string): Observable<any> {
     console.log(name, location, image);
     return this.http.post(
@@ -55,16 +55,15 @@ export class FarmService {
   }
 
   delete(id: string): Observable<any> {
-    return this.http.post(
-      farm_route + 'delete/' + id,
-      {
-        id,
-      },
+    return this.http.delete(
+      environment.production ?
+      farm_route + '/' + id :
+      farm_route + id,
       httpOptions
     );
   }
 
-  getFarm(id: string): Observable<any> {
+  getFarm(id: string){
     return this.http.get(
       farm_route + 'get/' + id,
       httpOptions
@@ -80,7 +79,9 @@ export class FarmService {
 
   getUserFarms() {
     return this.http.get(
-      farm_route + 'user/' + localStorage.getItem('id'),
+       environment.production ?
+       farm_route + '/user/' + localStorage.getItem('id') :
+       farm_route + 'user/' + localStorage.getItem('id'),
       httpOptions
     )
   }
