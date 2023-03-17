@@ -22,13 +22,13 @@ export class SupplyShopService {
     private readonly http: HttpClient,
   ) { }
 
-  create(name: string, location: string, image: string): Observable<any> {
+  create(formData: FormData): Observable<any> {
     return this.http.post(
       shop_route ,
       {
-        name,
-        location,
-        image,
+        name: formData.get('name'),
+        location: formData.get('location'),
+        image: formData.get('image'),
       },
       httpOptions
     );

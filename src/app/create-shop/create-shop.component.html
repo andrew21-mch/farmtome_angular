@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="create-shop.component.css" />
 <!-- register form -->
 <div class="card-body row col-6 m-auto mb-5">
-  <h3 class="card-title text-center">Create Shop</h3>
+  <h3 class="card-title text-center">Create Farm</h3>
   <hr class="w-25 m-auto">
   <form
     *ngIf="!isSuccessful"
@@ -55,17 +55,40 @@
         </div>
       </div>
     </div>
+    <!-- image -->
     <div class="form-group">
-      <button class="btn btn-primary btn-block">Create Supply Shop</button>
+      <label for="image">Image</label>
+      <input
+        type="file"
+        enctype="multipart/form-data"
+        class="form-control"
+        name="image"
+        [(ngModel)]="form.image"
+        required
+        #image="ngModel"
+        id="image"
+        [ngClass]="{ 'is-invalid': f.submitted && image.errors }"
+        (change)="onFileChange($event)"
+        />
+      <div class="invalid-feedback" *ngIf="image.errors && f.submitted">
+        <div *ngIf="image.errors['required']">Image is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">
+        <!-- show loading if -->
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+        Create
+      </button>
     </div>
 
     <div class="alert alert-warning" *ngIf="f.submitted && isCreatedFailed">
-      Shop creation failed!<br />{{ errorMessage }}
+      supply shop creation failed!<br />{{ errorMessage }}
     </div>
   </form>
 
   <div class="alert alert-success" *ngIf="isSuccessful">
-    Farm created successfully !
+    supply shop created successfully!
   </div>
 </div>
 

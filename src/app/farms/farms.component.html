@@ -12,12 +12,22 @@
             <span class="sr-only">Loading...</span>
           </div>
         </div>
+      </div><div class="col-md-12 mt-5" *ngIf="farms.length === 0" style="height: 200px;">
+        <div class="text-center">
+          <!-- some animated div to show nothing is loading -->
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <!-- show message -->
+          <p class="text-muted">You have no farms</p>
+
+        </div>
       </div>
       <div class="col-md-4" *ngFor="let farm of farms">
         <div class="card shadow">
           <div class="card-body">
             <!-- image -->
-            <img src="../../../assets/images/Rectangle 9.png" alt="farm image" class="img-fluid">
+            <img src="{{ farm.image }}" class="card-img-top" alt="..." />
             <h5 class="card-title">{{ farm.name }}</h5>
             <p class="card-text">{{ farm.location }}</p>
             <a [routerLink]="['/farms', farm.id]" class="">

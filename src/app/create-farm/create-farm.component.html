@@ -55,8 +55,31 @@
         </div>
       </div>
     </div>
+    <!-- image -->
     <div class="form-group">
-      <button class="btn btn-primary btn-block">Sign Up</button>
+      <label for="image">Image</label>
+      <input
+        type="file"
+        enctype="multipart/form-data"
+        class="form-control"
+        name="image"
+        [(ngModel)]="form.image"
+        required
+        #image="ngModel"
+        id="image"
+        [ngClass]="{ 'is-invalid': f.submitted && image.errors }"
+        (change)="onFileChange($event)"
+        />
+      <div class="invalid-feedback" *ngIf="image.errors && f.submitted">
+        <div *ngIf="image.errors['required']">Image is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">
+        <!-- show loading if -->
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+        Create
+      </button>
     </div>
 
     <div class="alert alert-warning" *ngIf="f.submitted && isCreatedFailed">

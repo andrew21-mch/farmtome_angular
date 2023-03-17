@@ -21,21 +21,40 @@ export class CreateShopComponent implements OnInit {
   isSuccessful = false;
   isCreatedFailed = false;
   errorMessage = '';
+  isLoading = false;
+  fileName = '';
 
 
   onSubmit(): void {
-    const { name, location, image} = this.form;
-    this.supplyShop.create(name,location, image).subscribe({
-      next: data => {
-        console.log(data);
+    const formData = new FormData();
+    formData.append('image', this.form.files);
+    formData.append('name', this.form.name);
+    formData.append('location', this.form.location);
+    this.isLoading = true;
+    this.supplyShop.create(formData).subscribe(
+      (res) => {
         this.isSuccessful = true;
+        this.isLoading = false;
         this.isCreatedFailed = false;
+        this.fileName = res.farm;
       },
-      error: err => {
-        this.errorMessage = err.error;
+      (err) => {
+        this.errorMessage = err.error.message;
         this.isCreatedFailed = true;
+        this.isLoading = false;
       }
-    });
+    );
+  }
+
+  onFileChange(event: any): void {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.form.files = reader.result;
+      }
+    }
   }
 
 }

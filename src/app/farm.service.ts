@@ -11,7 +11,9 @@ const httpOptions = {
   headers: new HttpHeaders(
     {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + localStorage.getItem('token') || ''
+      'Authorization': 'Bearer ' + localStorage.getItem('token') || '',
+      // add base 64 encoding
+      'charset': 'utf-8'
     }
   )
 };
@@ -28,14 +30,13 @@ export class FarmService {
   ) { }
 
   farms: Farm | undefined
-  create(name: string, location: string, image: string): Observable<any> {
-    console.log(name, location, image);
+  create(formData: FormData): Observable<any> {
     return this.http.post(
       farm_route,
       {
-        name,
-        location,
-        image,
+        name: formData.get('name'),
+        location: formData.get('location'),
+        image: formData.get('image'),
       },
       httpOptions
     );
