@@ -2,13 +2,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CreateShopComponent } from './create-shop/create-shop.component';
 import { CreateFarmComponent } from './create-farm/create-farm.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BodyComponent } from './component/body/body.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { FarmsComponent } from './farms/farms.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { BodyComponent } from './components/body/body.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
