@@ -6,6 +6,13 @@
   <div class="card-body">
     <!-- show farms on cards -->
     <div class="row">
+      <div class="col-md-12" *ngIf="!isLoaded">
+        <div class="text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
       <div class="col-md-4" *ngFor="let farm of farms">
         <div class="card shadow">
           <div class="card-body">

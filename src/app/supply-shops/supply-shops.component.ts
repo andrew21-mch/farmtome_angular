@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplyShopsComponent implements OnInit {
   message: any;
+  isLoaded: boolean = false;
 
   constructor(
     private shopService: SupplyShopService,
@@ -20,10 +21,13 @@ export class SupplyShopsComponent implements OnInit {
   }
 
   getUserShops() {
+    // check if isLoaded is true
+
     const shops = this.shopService.getUserShops().subscribe(
       (res) => {
         console.log(res);
         this.shops = res;
+        this.isLoaded = true;
         this.shops = this.shops.supplyShops;
       },
     );
@@ -37,5 +41,4 @@ export class SupplyShopsComponent implements OnInit {
       }
     );
   }
-
 }

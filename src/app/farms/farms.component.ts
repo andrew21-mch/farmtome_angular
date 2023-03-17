@@ -17,6 +17,7 @@ export class FarmsComponent implements OnInit {
   farms: any = [];
   message: string = '';
   isSuccessful: boolean = false
+  isLoaded: boolean = false;
 
   ngOnInit(): void {
     this.getUserFarms();
@@ -27,6 +28,7 @@ export class FarmsComponent implements OnInit {
    const farms = this.farmService.getUserFarms().subscribe(
      (res) => {
       this.farms = res;
+      this.isLoaded = true;
       this.farms = this.farms.farms;
       },
   );
