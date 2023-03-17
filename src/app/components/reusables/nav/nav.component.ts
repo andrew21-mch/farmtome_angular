@@ -1,5 +1,5 @@
-import { AuthServiceService } from './../../auth-service.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/service/auth-service.service';
 
 @Component({
   selector: 'app-nav',

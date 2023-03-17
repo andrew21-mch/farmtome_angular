@@ -1,9 +1,7 @@
-import { AuthServiceService } from './../../auth-service.service';
-import { SupplyShopService } from './../../supply-shop.service';
+import { AuthServiceService } from '../../../service/auth-service.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FarmService } from 'src/app/farm.service';
 
 @Component({
   selector: 'app-body',
