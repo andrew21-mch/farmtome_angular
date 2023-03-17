@@ -1,0 +1,11 @@
+/* import bi icons cdn */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+.btn-primary {
+  background-color: #3d826d;
+  /* border to color to tranparent */
+  border-color: transparent;
+}
+
+.text_warning {
+  color:  #3d826d;
+}

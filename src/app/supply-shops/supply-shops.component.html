@@ -1,0 +1,33 @@
+
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title text-center">My Supply Shops</h3>
+  </div>
+  <div class="card-body">
+    <!-- show shops on cards -->
+    <div class="row">
+      <div class="col-md-4" *ngFor="let shop of shops">
+        <div class="card shadow">
+          <div class="card-body">
+            <!-- image -->
+            <img src="../../../assets/images/shops.jpeg" alt="shop image" class="img-fluid">
+            <h5 class="card-title">{{ shop.name }}</h5>
+            <p class="card-text">{{ shop.location }}</p>
+            <a [routerLink]="['/shops', shop.id]" class="">
+              <i class="fas fa-eye "></i>
+            </a>
+            <a [routerLink]="['/shops', shop.id, 'edit']" class="">
+              <i class="fas fa-edit "></i>
+            </a>
+            <a class="" (click)="deleteshop(shop.id)">
+              <i class="fas fa-trash"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-primary w-25" *ngIf="isSuccessful">
+      {{ message }}
+    </div>
+  </div>
+</div>
