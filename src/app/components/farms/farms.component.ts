@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FarmService } from '../farm.service';
+import { FarmService } from 'src/app/service/farm.service';
 
 @Component({
   selector: 'app-farms',
