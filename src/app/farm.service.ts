@@ -12,7 +12,6 @@ const httpOptions = {
     {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('token') || '',
-      // add base 64 encoding
       'charset': 'utf-8'
     }
   )
