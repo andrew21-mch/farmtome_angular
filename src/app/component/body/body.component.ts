@@ -49,17 +49,6 @@ export class BodyComponent implements OnInit {
   }
 
   checkRole(role: string){
-    // extract the roles object from the user object
-    const user =  localStorage.getItem('user');
-    // return the name field of the user role
-    // for each of the roles, return the name field
-    var roles = []
-    if(user){
-      var userRoles = JSON.parse(user).roles
-      for(var i = 0; i < userRoles.length; i++){
-        roles.push(userRoles[i].name)
-      }
-    }
-    return roles.includes(role)
+    return this.authService.checkRole(role);
   }
 }

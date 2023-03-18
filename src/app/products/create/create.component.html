@@ -1,0 +1,134 @@
+<!--  include the css file -->
+<link rel="stylesheet" href="create.component.css" />
+<!-- register form -->
+<div class="card-body row col-6 m-auto mb-5">
+  <h3 class="card-title text-center">Create Product</h3>
+  <hr class="w-25 m-auto">
+  <form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && onsubmitCreate()"
+    #f="ngForm"
+    novalidate>
+    <!-- name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        [(ngModel)]="form.name"
+        required
+        minlength="3"
+        maxlength="20"
+        #name="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="name.errors && f.submitted">
+        <div *ngIf="name.errors['required']">Name is required</div>
+        <div *ngIf="name.errors['minlength']">
+          name must be at least 3 characters
+        </div>
+        <div *ngIf="name.errors['maxlength']">
+          name must be at most 20 characters
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        [(ngModel)]="form.description"
+        required
+        minlength="3"
+        maxlength="20"
+        #description="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
+        />
+    </div>
+    <!-- price -->
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        name="price"
+        [(ngModel)]="form.price"
+        required
+        minlength="3"
+        maxlength="6"
+        #price="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && price.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="price.errors && f.submitted">
+        <div *ngIf="price.errors['required']">Price is required</div>
+        <div *ngIf="price.errors['minlength']">
+          price must be at least 3 characters
+        </div>
+        <div *ngIf="price.errors['maxlength']">
+          price must be at most 6 characters
+        </div>
+      </div>
+    </div>
+
+    <!-- select farm -->
+    <div class="form-group">
+      <label for="farm">Farm</label>
+      <select
+        class="form-control"
+        name="farm"
+        [(ngModel)]="form.farm"
+        required
+        #farm="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && farm.errors }"
+        >
+        <option *ngFor="let farm of farms" [ngValue]="farm.id">
+          {{ farm.name }}
+        </option>
+      </select>
+      <div class="invalid-feedback" *ngIf="farm.errors && f.submitted">
+        <div *ngIf="farm.errors['required']">Farm is required</div>
+      </div>
+    </div>
+
+    <!-- image -->
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        type="file"
+        enctype="multipart/form-data"
+        class="form-control"
+        name="image"
+        [(ngModel)]="form.image"
+        required
+        #image="ngModel"
+        id="image"
+        [ngClass]="{ 'is-invalid': f.submitted && image.errors }"
+        (change)="onFileChange($event)"
+        />
+      <div class="invalid-feedback" *ngIf="image.errors && f.submitted">
+        <div *ngIf="image.errors['required']">Image is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">
+        <!-- show loading if -->
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+        Create
+      </button>
+    </div>
+
+    <div class="alert alert-warning" *ngIf="f.submitted && isCreatedFailed">
+      Farm creation failed!<br />{{ errorMessage }}
+    </div>
+  </form>
+
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    {{ successMessage }}
+  </div>
+</div>
+
+<router-outlet></router-outlet>

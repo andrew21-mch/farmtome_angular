@@ -68,5 +68,15 @@ export class AuthServiceService {
     return this.isAuthenticated() ? localStorage.getItem('token') : null;
   }
 
-
+  checkRole(role: string): any {
+    const user =  localStorage.getItem('user');
+    var roles = []
+    if(user){
+      var userRoles = JSON.parse(user).roles
+      for(var i = 0; i < userRoles.length; i++){
+        roles.push(userRoles[i].name)
+      }
+    }
+    return roles.includes(role)
+  }
 }

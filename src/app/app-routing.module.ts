@@ -1,3 +1,4 @@
+import { CreateComponent } from './products/create/create.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CreateShopComponent } from './create-shop/create-shop.component';
 import { CreateFarmComponent } from './create-farm/create-farm.component';
@@ -17,12 +18,13 @@ const routes: Routes = [
   { path: 'home', component: BodyComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'create_farm', component: CreateFarmComponent},
-  { path: 'create_shop', component: CreateShopComponent},
-  { path: 'products', component: ProductsComponent},
-  { path: 'farms', component: FarmsComponent},
-  { path: 'supply_shops', component: SupplyShopsComponent},
-  { path: '**', component: PageNotFoundComponent}
+  { path: 'create_farm', component: CreateFarmComponent },
+  { path: 'create_shop', component: CreateShopComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'farms', component: FarmsComponent },
+  { path: 'supply_shops', component: SupplyShopsComponent },
+  { path: 'products/create', component: CreateComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
