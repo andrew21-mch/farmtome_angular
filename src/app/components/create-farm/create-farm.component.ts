@@ -1,6 +1,6 @@
-import { FarmService } from './../farm.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { FarmService } from 'src/app/service/farm.service';
 
 @Component({
   selector: 'app-create-farm',
