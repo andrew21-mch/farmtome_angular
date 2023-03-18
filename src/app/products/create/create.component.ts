@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FarmService } from 'src/app/farm.service';
-import { ProductService } from 'src/app/product.service';
+import { FarmService } from 'src/app/services/farm.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-create',

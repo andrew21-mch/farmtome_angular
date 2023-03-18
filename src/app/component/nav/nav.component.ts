@@ -1,5 +1,6 @@
-import { AuthServiceService } from './../../auth-service.service';
+
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-nav',
@@ -33,6 +34,10 @@ export class NavComponent implements OnInit {
         window.location.reload();
       }
     });
+  }
+
+  checkRole(role: string): boolean {
+    return this.authService.checkRole(role);
   }
 
 

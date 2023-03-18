@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FarmService } from '../farm.service';
+import { Component, OnInit } from "@angular/core";
+import { FarmService } from "../services/farm.service";
+
 
 @Component({
   selector: 'app-farms',

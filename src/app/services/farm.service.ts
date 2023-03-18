@@ -1,9 +1,10 @@
-import { Farm } from './models/farm';
+
 import { CloudinaryModule } from '@cloudinary/ng';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Farm } from '../models/farm';
 
 const farm_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/farms' : 'http://localhost:8000/api/v1/farms/';
 

@@ -1,8 +1,8 @@
 <!--  include the css file -->
 <link rel="stylesheet" href="create.component.css" />
 <!-- register form -->
-<div class="card-body row col-6 m-auto mb-5">
-  <h3 class="card-title text-center">Create Product</h3>
+<div class="row col-md-6 m-auto mb-5">
+  <h3 class="card-title text-center text-warning mt-4">Create Product</h3>
   <hr class="w-25 m-auto">
   <form
     *ngIf="!isSuccessful"
@@ -122,7 +122,7 @@
     </div>
 
     <div class="alert alert-warning" *ngIf="f.submitted && isCreatedFailed">
-      Farm creation failed!<br />{{ errorMessage }}
+      product creation failed!<br />{{ errorMessage }}
     </div>
   </form>
 

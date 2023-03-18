@@ -1,7 +1,7 @@
 
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title text-center">Farms</h3>
+    <h3 class="card-title text-center">My Farms</h3>
   </div>
   <div class="card-body">
     <!-- show farms on cards -->
@@ -25,7 +25,7 @@
       </div>
       <div class="col-md-4" *ngFor="let farm of farms">
         <div class="card shadow">
-          <div class="card-body">
+          <div class="card-body mt-4">
             <!-- image -->
             <img src="{{ farm.image }}" class="card-img-top" alt="..." />
             <h5 class="card-title">{{ farm.name }}</h5>

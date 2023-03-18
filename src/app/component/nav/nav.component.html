@@ -26,9 +26,13 @@
           <a class="nav-link text-white fs-7 " routerLink="/inputs"
             routerLinkActive="active" ariaCurrentWhenActive="page">Inputs</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="checkRole('farmer')">
           <a class="nav-link text-white fs-7 " routerLink="/farms"
             routerLinkActive="active" ariaCurrentWhenActive="page">Farms</a>
+        </li>
+        <li class="nav-item" *ngIf="checkRole('supplier')">
+          <a class="nav-link text-white fs-7 " routerLink="/supply_shops"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Shops</a>
         </li>
       </ul>
 

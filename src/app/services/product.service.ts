@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
-import { environment } from './../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 
 const product_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/products' : 'http://localhost:8000/api/v1/products';

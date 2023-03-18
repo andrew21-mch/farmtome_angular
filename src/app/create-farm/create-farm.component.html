@@ -1,15 +1,17 @@
 <!--  include the css file -->
 <link rel="stylesheet" href="create-farm.component.css" />
 <!-- register form -->
-<div class="card-body row col-6 m-auto mb-5">
-  <h3 class="card-title text-center">Create Farm</h3>
+<div class="row col-md-6 m-auto mb-5">
+  <h3 class="card-title text-center text-warning mt-4">Create Farm</h3>
   <hr class="w-25 m-auto">
   <form
     *ngIf="!isSuccessful"
     name="form"
     (ngSubmit)="f.form.valid && onsubmitCreate()"
     #f="ngForm"
-    novalidate>
+    novalidate
+    class="m-auto"
+    >
     <!-- name -->
     <div class="form-group">
       <label for="name">Name</label>

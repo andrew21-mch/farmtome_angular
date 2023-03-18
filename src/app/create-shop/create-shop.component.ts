@@ -1,4 +1,4 @@
-import { SupplyShopService } from './../supply-shop.service';
+import { SupplyShopService } from '../services/supply-shop.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

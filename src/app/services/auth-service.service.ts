@@ -1,7 +1,8 @@
-import { environment } from './../environments/environment';
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 const auth_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/auth/' : 'http://localhost:8000/api/v1/auth/';
 const logout_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/users/' : 'http://localhost:8000/api/v1/users/';
