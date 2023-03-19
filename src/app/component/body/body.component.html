@@ -103,7 +103,18 @@
         </div>
       </div>
     </div>
+
+    <div class="row" *ngIf="inputs.length == 0">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <p class="section-title text-danger text-center">No farm inputs
+            available</p>
+          <hr>
+        </div>
+      </div>
+    </div>
     <div class="row">
+
       <div class="card col-md-3 raise-on-hover m-3 justify-content-center"
         *ngFor="let input of inputs">
         <div class="team-member">
@@ -120,15 +131,6 @@
               <!-- price -->
               <a href="#" class="team-member-social-link m-2"><i class="fas
                   fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>
-            </div>
-          </div>
-        </div>
-        <div class="row" *ngIf="inputs.length === 0">
-          <div class="col-md-12">
-            <div class="section-heading">
-              <p class="section-title text-danger text-center">No farm inputs
-                available</p>
-              <hr>
             </div>
           </div>
         </div>

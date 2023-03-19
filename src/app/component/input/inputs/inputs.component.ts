@@ -9,20 +9,22 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class InputsComponent implements OnInit {
 
-  constructor(
-    private readonly inputService: AgroInputService,
-    private readonly authService: AuthServiceService
-  ) { }
   message: string = '';
   isSuccessful: boolean = false;
   isLoaded: boolean = false;
   userid: string = '';
   inputs: any = [];
+
+  constructor(
+    private readonly inputService: AgroInputService,
+    private readonly authService: AuthServiceService
+  ) { }
+
   ngOnInit(): void {
-    this.getinputs();
+    this.getInputs();
     this.userid = this.getLoggedInUser();
   }
-  getinputs() {
+  getInputs() {
     const inputs = this.inputService.getInputs().subscribe(
       (res) => {
         this.inputs = res;
@@ -47,7 +49,7 @@ export class InputsComponent implements OnInit {
     return this.inputService.getInput(id).subscribe(
       (res) => {
         this.isSuccessful = true;
-        this.getinputs();
+        this.getInputs();
       }
     );
   }
@@ -58,7 +60,7 @@ export class InputsComponent implements OnInit {
       (res) => {
         this.isSuccessful = true;
         this.message = JSON.stringify(res.data);
-        this.getinputs();
+        this.getInputs();
       },
       (err) => {
         this.deleteFaild = true;

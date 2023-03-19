@@ -13,6 +13,7 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./body.component.css'],
 })
 export class BodyComponent implements OnInit {
+
   closeResult = '';
   products: any = [];
   inputs: any = [];
@@ -20,6 +21,7 @@ export class BodyComponent implements OnInit {
   isSuccessful: boolean = false;
   isLoaded: boolean = false;
   userid: string = '';
+  
   constructor(
     private readonly router: Router,
     private readonly authService: AuthServiceService,
@@ -30,13 +32,12 @@ export class BodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    this.getinputs();
+    this.getInputs();
+
   }
 
   getUserName(): any {
     const user = localStorage.getItem('user');
-    // return the name field of the user object
-    // split the string to get the nam
     if (user) {
       return JSON.parse(user).name.split(' ')[0]
     }
@@ -68,7 +69,6 @@ export class BodyComponent implements OnInit {
       (res) => {
         this.products = res;
         this.isLoaded = true;
-        //
         this.products = this.products.data
         this.products.forEach((product: any) => {
           product.farmName = product.farm.name;
@@ -78,28 +78,26 @@ export class BodyComponent implements OnInit {
       },
 
       (err) => {
-        this.message = err.error.message;
+        this.message = JSON.stringify(err.error.message);
       }
     );
   }
 
-  getinputs() {
+  getInputs() {
     const inputs = this.agroInputService.getInputs().subscribe(
       (res) => {
         this.inputs = res;
         this.isLoaded = true;
-        this.inputs = this.inputs.data
+        this.inputs = this.inputs.data;
         this.inputs.forEach((input: any) => {
           input.shopName = input.supplier_shop.name;
           input.supplierPhone = input.supplier_shop.supplier.phone;
         }
-
-
         )
       },
 
       (err) => {
-        this.message = err.error.message;
+        this.message = JSON.stringify(err.error.message);
       }
     );
   }
