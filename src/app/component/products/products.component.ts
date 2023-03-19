@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from '../services/auth-service.service';
-import { ProductService } from '../services/product.service';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
@@ -31,7 +31,15 @@ export class ProductsComponent implements OnInit {
       (res) => {
         this.products = res;
         this.isLoaded = true;
+        //
         this.products = this.products.data
+        this.products.forEach((product: any) => {
+          product.farmName = product.farm.name;
+          product.farmerPhone = product.farm.farmer.phone;
+        }
+
+
+        )
       },
 
       (err) => {

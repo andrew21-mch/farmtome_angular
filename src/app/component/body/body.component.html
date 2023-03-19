@@ -5,6 +5,7 @@
         <p class="text-danger">Welcome {{ getUserName()}}! </p>
         <hr class="w-25">
       </div>
+
     </div>
     <div class="hero-content mt-5 mb-5 text-center">
       <h1 class="hero-title">Welcome to <span class="text_warning">Farmers
@@ -25,7 +26,8 @@
     <div class="row">
       <div class="col-md-12">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search for products" aria-label="Recipient's username"
+          <input type="text" class="form-control" placeholder="Search for
+            products" aria-label="Recipient's username"
             aria-describedby="button-addon2">
           <div class="input-group-append">
             <!-- search button with serach icon -->
@@ -40,89 +42,51 @@
   </div>
 </Section>
 <Section class="miri-ui-kit-section team-members-section">
-  <!-- display some farm products, agro inputs, farms and supplier shops in differerent sections -->
-  <div class="container">
+ <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2 class="section-title">Farm Products</h2>
+          <h3 class="section-title">Farm Products</h3>
           <hr>
         </div>
         <div *ngIf="isLoggedIn()">
-          <!-- button to create farm or shop -->
           <div class="well well-sm">
-            <!-- modal to create farm -->
-            <a class="btn btn-primary mb-5" routerLink="/create_farm">Create
-              your own Farm</a>
+            <a class="link mb-5 text-warning"
+              routerLink="/create_farm">
+              Create your own farm</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4 raise-on-hover">
-        <div class="team-member">
-          <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 8.png" alt="team
-              member">
-          </div>
-          <div class="team-member-info">
-            <h3 class="team-member-name">Green Beans</h3>
-            <p class="team-member-description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quisquam, quae.</p>
-            <div class="team-member-social">
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-facebook-f"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-twitter"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 raise-on-hover">
-        <div class="team-member">
-          <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team
-              member">
-          </div>
-          <div class="team-member-info">
-            <h3 class="team-member-name">Tomatos</h3>
-            <p class="team-member-description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quisquam, quae.</p>
-            <div class="team-member-social">
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-facebook-f"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-twitter"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 raise-on-hover">
-        <div class="team-member">
-          <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team
-              member">
-          </div>
-          <div class="team-member-info">
-            <h3 class="team-member-name">Njama Njama</h3>
-            <p class="team-member-description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quisquam, quae.</p>
-            <div class="team-member-social">
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-facebook-f"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-twitter"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
 
+    <div class="row" *ngIf="products">
+      <div class="card col-md-3 raise-on-hover m-3 justify-content-center"
+        *ngFor="let product of
+        products">
+        <div class="team-member-image">
+          <img src="{{ product.image }}" alt="team member" class="img-fluid">
+        </div>
+        <div class="team-member-info">
+          <h3 class="team-member-name">{{ product.name }}</h3>
+          <p class="team-member-description">{{ product.description }}</p>
+          <div class="team-member-social">
+            <!-- phone number -->
+            <a href="#" class="team-member-social-link m-2"><i class="fas
+                fa-phone text-warning"> {{ product.farmerPhone }}</i></a>
+            <!-- price -->
+            <a href="#" class="team-member-social-link m-2"><i class="fas
+                fa-money-bill-wave text-warning"> {{ product.price }} XAF</i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="products.length == 0">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <p class="section-title text-danger text-center">No products available</p>
+          <hr>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -130,25 +94,21 @@
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
-          <h2 class="section-title">Agro Inputs</h2>
+          <h3 class="section-title">Agro Inputs</h3>
           <hr>
         </div>
         <div *ngIf="isLoggedIn()">
-          <!-- button to create farm or shop -->
-          <div class="well well-sm">
-            <a class="btn btn-primary mb-5"
-              routerLink="/create_shop">
-              Create your own shop</a>
-          </div>
+            <a class="link mb-5 text-warning" routerLink="/create_shop"> Create your own shop</a>
+            <hr>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 raise-on-hover">
+      <div class="card col-md-3 raise-on-hover m-3 justify-content-center"
+      *ngFor="let input of inputs">
         <div class="team-member">
           <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 8.png" alt="team
-              member">
+            <img src="{{ input.image }}" alt="team member" class="img-fluid">
           </div>
           <div class="team-member-info">
             <h3 class="team-member-name">Affordable Hoes</h3>
@@ -165,49 +125,14 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4 raise-on-hover">
-        <div class="team-member">
-          <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team
-              member">
-          </div>
-          <div class="team-member-info">
-            <h3 class="team-member-name">One in a Life time fertilizers</h3>
-            <p class="team-member-description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quisquam, quae.</p>
-            <div class="team-member-social">
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-facebook-f"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-twitter"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-linkedin-in"></i></a>
-            </div>
-          </div>
+    </div>
+    <div class="row" *ngIf="inputs.length == 0">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <p class="section-title text-danger text-center">No farm inputs available</p>
+          <hr>
         </div>
       </div>
-      <div class="col-md-4 raise-on-hover">
-        <div class="team-member">
-          <div class="team-member-image">
-            <img src="../../../assets/images/Rectangle 9.png" alt="team
-              member">
-          </div>
-          <div class="team-member-info">
-            <h3 class="team-member-name">Marchette</h3>
-            <p class="team-member-description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quisquam, quae.</p>
-            <div class="team-member-social">
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-facebook-f"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-twitter"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-linkedin-in"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 

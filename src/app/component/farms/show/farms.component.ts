@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FarmService } from "../services/farm.service";
+import { FarmService } from "src/app/services/farm.service";
 
 
 @Component({

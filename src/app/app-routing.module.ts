@@ -1,16 +1,17 @@
-import { CreateComponent } from './products/create/create.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { CreateShopComponent } from './create-shop/create-shop.component';
-import { CreateFarmComponent } from './create-farm/create-farm.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { BodyComponent } from './component/body/body.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
-import { FarmsComponent } from './farms/farms.component';
-import { SupplyShopsComponent } from './supply-shops/supply-shops.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { RegisterComponent } from './component/auth/register/register.component';
+import { BodyComponent } from './component/body/body.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { CreateFarmComponent } from './component/farms/create-farm/create-farm.component';
+import { FarmsComponent } from './component/farms/show/farms.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { CreateComponent } from './component/products/create/create.component';
+import { ProductsComponent } from './component/products/products.component';
+import { CreateShopComponent } from './component/supplyshops/create-shop/create-shop.component';
+import { SupplyShopsComponent } from './component/supplyshops/show/supply-shops.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

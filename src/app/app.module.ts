@@ -7,18 +7,18 @@ import { NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './component/nav/nav.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { BodyComponent } from './component/body/body.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CreateFarmComponent } from './create-farm/create-farm.component';
-import { CreateShopComponent } from './create-shop/create-shop.component';
-import { ProductsComponent } from './products/products.component';
-import { FarmsComponent } from './farms/farms.component';
-import { SupplyShopsComponent } from './supply-shops/supply-shops.component';
-import { CreateComponent } from './products/create/create.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { RegisterComponent } from './component/auth/register/register.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { CreateFarmComponent } from './component/farms/create-farm/create-farm.component';
+import { FarmsComponent } from './component/farms/show/farms.component';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
+import { CreateComponent } from './component/products/create/create.component';
+import { ProductsComponent } from './component/products/products.component';
+import { CreateShopComponent } from './component/supplyshops/create-shop/create-shop.component';
+import { SupplyShopsComponent } from './component/supplyshops/show/supply-shops.component';
 
 @NgModule({
   declarations: [

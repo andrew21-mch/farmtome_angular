@@ -1,37 +1,43 @@
-import { SupplyShopService } from '../services/supply-shop.service';
+
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpEvent } from '@angular/common/http';
+import { FarmService } from 'src/app/services/farm.service';
 
 @Component({
-  selector: 'app-create-shop',
-  templateUrl: './create-shop.component.html',
-  styleUrls: ['./create-shop.component.css']
+  selector: 'app-create-farm',
+  templateUrl: './create-farm.component.html',
+  styleUrls: ['./create-farm.component.css']
 })
-export class CreateShopComponent implements OnInit {
+export class CreateFarmComponent implements OnInit {
 
-  constructor(private supplyShop: SupplyShopService) { }
+  constructor(
+    private farmService: FarmService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(): void {
   }
 
-
   form: any = {
     name: null,
     location: null,
+    image: null,
   };
+
+  fileName = '';
   isSuccessful = false;
   isCreatedFailed = false;
-  errorMessage = '';
   isLoading = false;
-  fileName = '';
+  errorMessage = '';
 
 
-  onSubmit(): void {
+  onsubmitCreate(): void {
     const formData = new FormData();
     formData.append('image', this.form.files);
     formData.append('name', this.form.name);
     formData.append('location', this.form.location);
     this.isLoading = true;
-    this.supplyShop.create(formData).subscribe(
+    this.farmService.create(formData).subscribe(
       (res) => {
         this.isSuccessful = true;
         this.isLoading = false;
@@ -54,6 +60,8 @@ export class CreateShopComponent implements OnInit {
       reader.onload = () => {
         this.form.files = reader.result;
       }
+
+
     }
   }
 
