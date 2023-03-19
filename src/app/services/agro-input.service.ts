@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 const agro_inputs_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/AgroInputs' : 'http://localhost:8000/api/v1/AgroInputs';
+
 const httpOptions = {
   headers: new HttpHeaders(
     {
@@ -47,7 +48,7 @@ export class AgroInputService {
         description: formData.get('description'),
         price: formData.get('price'),
         image: formData.get('image'),
-        farm_id: formData.get('farm_id'),
+        supplier_shop_id: formData.get('supplier_shop_id'),
       },
       httpOptions
     );
@@ -72,5 +73,12 @@ export class AgroInputService {
       agro_inputs_route + '/' + id,
       httpOptions
     )
+  }
+
+  getUserShops() {
+    return this.http.get(
+      agro_inputs_route + '/user' + localStorage.getItem('id'),
+      httpOptions
+    );
   }
 }

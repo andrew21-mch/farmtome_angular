@@ -1,3 +1,4 @@
+import { CreateInputComponent } from './component/input/create-input/create-input.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,6 +8,7 @@ import { BodyComponent } from './component/body/body.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { CreateFarmComponent } from './component/farms/create-farm/create-farm.component';
 import { FarmsComponent } from './component/farms/show/farms.component';
+import { InputsComponent } from './component/input/inputs/inputs.component';
 import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 import { CreateComponent } from './component/products/create/create.component';
 import { ProductsComponent } from './component/products/products.component';
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'farms', component: FarmsComponent },
   { path: 'supply_shops', component: SupplyShopsComponent },
   { path: 'products/create', component: CreateComponent },
+  { path: 'inputs', component: InputsComponent },
+  { path: 'inputs/create', component: CreateInputComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

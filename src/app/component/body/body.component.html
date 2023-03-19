@@ -38,11 +38,10 @@
         </div>
       </div>
     </div>
-
   </div>
 </Section>
 <Section class="miri-ui-kit-section team-members-section">
- <div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="section-heading">
@@ -98,75 +97,44 @@
           <hr>
         </div>
         <div *ngIf="isLoggedIn()">
-            <a class="link mb-5 text-warning" routerLink="/create_shop"> Create your own shop</a>
-            <hr>
+          <a class="link mb-5 text-warning" routerLink="/create_shop"> Create
+            your own shop</a>
+          <hr>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="card col-md-3 raise-on-hover m-3 justify-content-center"
-      *ngFor="let input of inputs">
+        *ngFor="let input of inputs">
         <div class="team-member">
           <div class="team-member-image">
             <img src="{{ input.image }}" alt="team member" class="img-fluid">
           </div>
           <div class="team-member-info">
-            <h3 class="team-member-name">Affordable Hoes</h3>
-            <p class="team-member-description">Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quisquam, quae.</p>
+            <h3 class="team-member-name">{{ input.name}} </h3>
+            <p class="team-member-description">{{input.description}} </p>
             <div class="team-member-social">
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-facebook-f"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-twitter"></i></a>
-              <a href="#" class="team-member-social-link"><i class="fab
-                  fa-linkedin-in"></i></a>
+              <!-- phone number -->
+              <a href="#" class="team-member-social-link m-2"><i class="fas
+                  fa-phone text-warning"> {{ input.supplierPhone }}</i></a>
+              <!-- price -->
+              <a href="#" class="team-member-social-link m-2"><i class="fas
+                  fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="inputs.length === 0">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <p class="section-title text-danger text-center">No farm inputs
+                available</p>
+              <hr>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="inputs.length == 0">
-      <div class="col-md-12">
-        <div class="section-heading">
-          <p class="section-title text-danger text-center">No farm inputs available</p>
-          <hr>
-        </div>
-      </div>
-    </div>
   </div>
-
-  <!-- modals -->
-  <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Create Farm</h4>
-      <button type="button" class="btn-close" aria-label="Close"
-        (click)="modal.dismiss('Cross click')"></button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <div class="mb-3">
-          <label for="dateOfBirth">Date of birth</label>
-          <div class="input-group">
-            <input
-              id="dateOfBirth"
-              class="form-control"
-              placeholder="yyyy-mm-dd"
-              name="dp"
-              />
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark"
-        (click)="modal.close('Save click')">Save</button>
-    </div>
-  </ng-template>
-
-
   <hr />
-
-  <pre>{{ closeResult }}</pre>
 </Section>
 <router-outlet></router-outlet>

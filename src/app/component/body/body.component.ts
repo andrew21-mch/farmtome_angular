@@ -30,13 +30,14 @@ export class BodyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    this.getinputs();
   }
 
   getUserName(): any {
-    const user =  localStorage.getItem('user');
+    const user = localStorage.getItem('user');
     // return the name field of the user object
     // split the string to get the nam
-    if(user){
+    if (user) {
       return JSON.parse(user).name.split(' ')[0]
     }
     return ''
@@ -45,20 +46,20 @@ export class BodyComponent implements OnInit {
 
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('token')? true: false
+    return localStorage.getItem('token') ? true : false
   }
 
 
-  createFarm(){
+  createFarm() {
     // route to create farm
     return this.router.navigate(['/create_farm']);
   }
 
-  createShop(){
+  createShop() {
     return this.router.navigate(['/create_shop'])
   }
 
-  checkRole(role: string){
+  checkRole(role: string) {
     return this.authService.checkRole(role);
   }
 
@@ -82,17 +83,18 @@ export class BodyComponent implements OnInit {
     );
   }
 
-  getInputs() {
+  getinputs() {
     const inputs = this.agroInputService.getInputs().subscribe(
       (res) => {
         this.inputs = res;
         this.isLoaded = true;
-        //
         this.inputs = this.inputs.data
         this.inputs.forEach((input: any) => {
-          input.shopName = input.supplyShop.name;
-          input.farmerPhone = input.supplyShop.supplier.phone;
+          input.shopName = input.supplier_shop.name;
+          input.supplierPhone = input.supplier_shop.supplier.phone;
         }
+
+
         )
       },
 
@@ -101,5 +103,6 @@ export class BodyComponent implements OnInit {
       }
     );
   }
+
 
 }

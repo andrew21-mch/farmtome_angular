@@ -19,6 +19,8 @@ import { CreateComponent } from './component/products/create/create.component';
 import { ProductsComponent } from './component/products/products.component';
 import { CreateShopComponent } from './component/supplyshops/create-shop/create-shop.component';
 import { SupplyShopsComponent } from './component/supplyshops/show/supply-shops.component';
+import { InputsComponent } from './component/input/inputs/inputs.component';
+import { CreateInputComponent } from './component/input/create-input/create-input.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { SupplyShopsComponent } from './component/supplyshops/show/supply-shops.
     FarmsComponent,
     SupplyShopsComponent,
     CreateComponent,
+    InputsComponent,
+    CreateInputComponent,
   ],
   imports: [
     BrowserModule,
