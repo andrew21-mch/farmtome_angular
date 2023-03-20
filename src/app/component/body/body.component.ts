@@ -1,6 +1,5 @@
+import { GeneralService } from './../../services/general.service';
 import { AgroInputService } from './../../services/agro-input.service';
-import { SupplyShopService } from './../../services/supply-shop.service';
-import { ProductsComponent } from './../products/products.component';
 import { ProductService } from './../../services/product.service';
 
 import { Component, Inject, OnInit } from '@angular/core';
@@ -17,16 +16,25 @@ export class BodyComponent implements OnInit {
   closeResult = '';
   products: any = [];
   inputs: any = [];
+  search: any = [];
   message: string = '';
   isSuccessful: boolean = false;
   isLoaded: boolean = false;
   userid: string = '';
-  
+
+  // search form
+  form: any = {
+    searchTerm: null,
+    category: null,
+  };
+
+
   constructor(
     private readonly router: Router,
     private readonly authService: AuthServiceService,
     private readonly productService: ProductService,
-    private readonly agroInputService: AgroInputService
+    private readonly agroInputService: AgroInputService,
+    private readonly generalService: GeneralService,
   ) { }
 
 
@@ -102,5 +110,29 @@ export class BodyComponent implements OnInit {
     );
   }
 
+  generalSearch() {
+    const query = this.form.searchTerm;
+
+    const search = this.generalService.search(query).subscribe(
+      (res) => {
+        this.search = res
+        this.isLoaded = true;
+        this.products = this.search.data.products;
+        this.inputs = this.search.data.inputs;
+        this.products.forEach((product: any) => {
+          product.farmName = product.farm.name;
+          product.farmerPhone = product.farm.farmer.phone;
+        });
+        this.inputs.forEach((input: any) => {
+          input.shopName = input.supplier_shop.name;
+          input.supplierPhone = input.supplier_shop.supplier.phone;
+        });
+      },
+
+      (err) => {
+        this.message = JSON.stringify(err.error.message);
+      }
+    );
+  }
 
 }
