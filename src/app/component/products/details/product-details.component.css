@@ -17,3 +17,14 @@
   }
 
 }
+@media (max-width: 450px) {
+
+  img {
+    width: 400px;
+    border-radius: 10px;
+    height: 150px;
+  }
+  .col-md-2 {
+    max-width: 40%;
+  }
+}
