@@ -34,9 +34,8 @@ export class AgroInputService {
 
   getInput(id: string) {
     return this.http.get(
-      environment.production ?
-      agro_inputs_route + '/' + id :
-      agro_inputs_route + id,
+      agro_inputs_route + '/' + id,
+      httpOptions
     );
   }
 

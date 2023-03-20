@@ -1,0 +1,44 @@
+<!-- input detail page -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="section-heading">
+        <h3 class="section-title">Farm Input Details</h3>
+        <hr>
+      </div>
+    </div>
+  </div>
+  <!-- show in card -->
+  <div class="card p-5 m-4">
+    <!-- show in row -->
+    <div class="row">
+      <div class="col-md-6">
+        <img src="{{ input.image }}" alt="team member" class="img-fluid">
+      </div>
+      <div class="col-md-6 card-body">
+        <h3 class="team-member-name">{{ input.name }}</h3>
+        <p class="team-member-description">{{ input.description }}</p>
+        <div class="team-member-social">
+          <!-- location -->
+          <a href="#" class="team-member-social-link m-2"><i class="fas fa-map-marker-alt
+              text-warning"> {{ input.location }}</i></a>
+        </div>
+        <div class="team-member-social">
+          <!-- phone number -->
+          <a href="#" class="team-member-social-link m-2"><i class="fas fa-phone
+              text-warning"> {{ input.supplierPhone }}</i></a>
+          <!-- price -->
+          <a href="#" class="team-member-social-link m-2"><i class="fas
+              fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <button class="btn btn-primary" (click)="placeOrder(input.id)">
+              <i class="fas fa-shopping-cart"></i> Place Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

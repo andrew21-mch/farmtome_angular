@@ -1,20 +1,10 @@
 .btn-warning {
   background-color: #3d826d;
-  /* border to color to tranparent */
   border-color: transparent;
 }
-
-.text_warning {
-  color:  #3d826d;
-}
-
 .btn-primary {
   background-color: #3d826d;
   /* border to color to tranparent */
   border-color: transparent;
 }
 
-a:hover {
-  color: #3d826d;
-  cursor: pointer;
-}

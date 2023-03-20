@@ -135,4 +135,15 @@ export class BodyComponent implements OnInit {
     );
   }
 
+  showProductDetails(id: string) {
+    localStorage.setItem('productid', id);
+    this.router.navigate(['/products/details']);
+  }
+
+  showInputDetails(id: string) {
+    localStorage.setItem('inputId', id);
+    this.router.navigate(['/inputs/details']);
+  }
+
+
 }
