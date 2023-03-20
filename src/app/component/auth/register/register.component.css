@@ -18,3 +18,9 @@
   border-color: transparent;
 }
 
+.form-control {
+  border: 1px solid #3d826d;
+  max-height: 40px;
+  border-radius: 3px;
+  min-width: 200px;
+}
