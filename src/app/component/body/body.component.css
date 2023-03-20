@@ -18,3 +18,26 @@ a:hover {
   color: #3d826d;
   cursor: pointer;
 }
+
+@media (max-width: 450px) {
+
+  img {
+    width: 400px;
+    border-radius: 10px;
+    height: 150px;
+  }
+  .col-md-2 {
+    max-width: 40%;
+  }
+}
+
+/* laptop media */
+@media (min-width: 768px) {
+
+  img {
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+}

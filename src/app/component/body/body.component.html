@@ -74,14 +74,13 @@
 
     <div class="row" *ngIf="products">
       <a class="card col-md-3 raise-on-hover justify-content-center
-        hover-pointer"
+        hover-pointer mt-2"
         *ngFor="let product of
         products"
-        (click)="showProductDetails(product.id)"
-
-        >
-        <div class="team-member-image">
-          <img src="{{ product.image }}" alt="team member" class="img-fluid">
+        (click)="showProductDetails(product.id)">
+        <div class="team-member-image m-auto">
+          <img src="{{ product.image }}" alt="team member" class="img-fluid
+            mt-2">
         </div>
         <div class="team-member-info">
           <h3 class="team-member-name">{{ product.name }}</h3>
@@ -89,12 +88,10 @@
           <div class="team-member-social">
             <!-- phone number -->
             <a class="team-member-social-link m-2"><i class="fas
-                fa-phone text-warning "
-                > {{ product.farmerPhone }}</i></a>
+                fa-phone text-warning "> {{ product.farmerPhone }}</i></a>
             <!-- price -->
             <a class="team-member-social-link m-2"><i class="fas
-                fa-money-bill-wave text-warning"
-                > {{ product.price }} XAF</i></a>
+                fa-money-bill-wave text-warning"> {{ product.price }} XAF</i></a>
           </div>
         </div>
       </a>
@@ -136,26 +133,22 @@
     </div>
     <div class="row">
 
-      <a class="card col-md-3 raise-on-hover justify-content-center"
+      <a class="card col-md-3 raise-on-hover justify-content-center "
         *ngFor="let input of inputs"
-        (click)="showInputDetails(input.id)"
-        >
-
-        <div class="team-member">
-          <div class="team-member-image">
-            <img src="{{ input.image }}" alt="team member" class="img-fluid">
-          </div>
-          <div class="team-member-info">
-            <h3 class="team-member-name">{{ input.name}} </h3>
-            <p class="team-member-description">{{input.description}} </p>
-            <div class="team-member-social">
-              <!-- phone number -->
-              <a  class="team-member-social-link m-2"><i class="fas
-                  fa-phone text-warning"> {{ input.supplierPhone }}</i></a>
-              <!-- price -->
-              <a  class="team-member-social-link m-2"><i class="fas
-                  fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>
-            </div>
+        (click)="showInputDetails(input.id)">
+        <div class="team-member-image m-auto">
+          <img src="{{ input.image }}" alt="team member" class="img-fluid mt-2">
+        </div>
+        <div class="team-member-info">
+          <h3 class="team-member-name">{{ input.name}} </h3>
+          <p class="team-member-description">{{input.description}} </p>
+          <div class="team-member-social">
+            <!-- phone number -->
+            <a class="team-member-social-link m-2"><i class="fas
+                fa-phone text-warning"> {{ input.supplierPhone }}</i></a>
+            <!-- price -->
+            <a class="team-member-social-link m-2"><i class="fas
+                fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>
           </div>
         </div>
       </a>
