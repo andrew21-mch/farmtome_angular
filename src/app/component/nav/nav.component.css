@@ -30,6 +30,34 @@
     }
 }
 
+@media (min-width: 768px) {
+
+  img {
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .navigation{
+    border-bottom-right-radius: 20px;
+  }
+
+}
+
+@media (min-width: 992px) {
+
+  img {
+    width: 450px;
+    height: 250px;
+    border-radius: 10px;
+  }
+
+  .navigation{
+    border-bottom-right-radius: 20px;
+  }
+
+}
+
 .navbar-toggler-icon{
     color: antiquewhite;
     background-color: #3d826d;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AgroInputService } from 'src/app/services/agro-input.service';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
@@ -17,7 +18,8 @@ export class InputsComponent implements OnInit {
 
   constructor(
     private readonly inputService: AgroInputService,
-    private readonly authService: AuthServiceService
+    private readonly authService: AuthServiceService,
+    private readonly router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -82,4 +84,8 @@ export class InputsComponent implements OnInit {
       return id;
     }
 
+    showInputDetails(id: string) {
+      localStorage.setItem('inputId', id);
+      this.router.navigate(['/inputs/details']);
+    }
 }

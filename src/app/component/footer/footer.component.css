@@ -24,3 +24,22 @@ color: #fff;
   }
 
 }
+
+/* laptop media */
+@media (min-width: 768px) {
+
+  img {
+    width: 400px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .footer{
+    border-top-left-radius: 20px;
+  }
+
+  .navigation{
+    border-bottom-right-radius: 20px;
+  }
+
+}

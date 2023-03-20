@@ -13,3 +13,13 @@
   /* border to color to tranparent */
   border-color: transparent;
 }
+
+a{
+  color: #3d826d;
+  cursor: pointer;
+}
+a:hover{
+  transform: translateY(-8px);
+  /* slow transiation */
+  transition: all 1s;
+}

@@ -14,3 +14,13 @@ i{
   color: #252631;
   padding: 0 5px;
 }
+
+a{
+  color: #3d826d;
+  cursor: pointer;
+}
+a:hover{
+  transform: translateY(-8px);
+  /* slow transiation */
+  transition: all 1s;
+}

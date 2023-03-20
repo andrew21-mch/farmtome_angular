@@ -39,5 +39,12 @@ a:hover {
     height: 150px;
     border-radius: 10px;
   }
+  .col-md-3{
+    max-width: 260px;
+    /* give some small space */
+    margin: 0 10px;
+  }
 
 }
+
+

@@ -21,7 +21,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-12 mt-5" *ngIf="products.length === 0" style="height: 200px;">
+      <div class="col-md-12 mt-5" *ngIf="products.length === 0" style="height:
+        200px;">
         <div class="text-center">
           <!-- some animated div to show nothing is loading -->
           <div class="spinner-border text-primary" role="status">
@@ -32,7 +33,9 @@
 
         </div>
       </div>
-      <div class="col-md-4" *ngFor="let product of products">
+      <a class="col-md-4" *ngFor="let product of products"
+      (click)="showProductDetails(product.id)"
+      >
         <div class="card shadow">
           <div class="card-body">
             <!-- image -->
@@ -57,23 +60,27 @@
           </div>
           <!-- place order -->
           <div class="card-footer">
-            <a [routerLink]="['/products', product.id]" class="">
+            <a
+              (click)="showProductDetails(product.id)">
               <i class="fas fa-eye "></i>
             </a>
             <!-- if product farmer_id is equal to loggedIn user id then show edit and delete -->
-            <a [routerLink]="['/products', product.id, 'edit']" class="text-warning" *ngIf="product.farmer_id === userid">
+            <a [routerLink]="['/products', product.id, 'edit']"
+              class="text-warning" *ngIf="product.farmer_id === userid">
               <i class="fas fa-edit "></i>
             </a>
-            <a class="" (click)="deleteProduct(product.id)" href="#" *ngIf="product.farmer_id === userid">
+            <a class="" (click)="deleteProduct(product.id)" href="#"
+              *ngIf="product.farmer_id === userid">
               <i class="fas fa-trash text-danger"></i>
             </a>
-            <a [routerLink]="['/orders/create', product.id]" class="" *ngIf="product.farmer_id !== userid">
+            <a [routerLink]="['/orders/create', product.id]" class=""
+              *ngIf="product.farmer_id !== userid">
               <i class="fas fa-shopping-cart color-primary"></i>
             </a>
           </div>
 
         </div>
-      </div>
+      </a>
     </div>
 
   </div>

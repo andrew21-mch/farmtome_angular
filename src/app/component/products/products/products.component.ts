@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,7 +13,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private readonly authService: AuthServiceService
+    private readonly authService: AuthServiceService,
+    private readonly router: Router,
   ) { }
 
   products: any = [];
@@ -83,6 +85,11 @@ export class ProductsComponent implements OnInit {
       const user = localStorage.getItem('user');
       const id = JSON.parse(user!).id;
       return id;
+    }
+
+    showProductDetails(id: string) {
+      localStorage.setItem('productid', id)
+      this.router.navigate(['/products/details'])
     }
 
 
