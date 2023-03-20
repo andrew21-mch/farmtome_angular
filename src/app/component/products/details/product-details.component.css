@@ -8,3 +8,12 @@
   border-color: transparent;
 }
 
+@media (min-width: 768px) {
+
+  img {
+    width: 450px;
+    height: 250px;
+    border-radius: 10px;
+  }
+
+}
