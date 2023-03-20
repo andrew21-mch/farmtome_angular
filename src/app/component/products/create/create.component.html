@@ -20,7 +20,7 @@
         [(ngModel)]="form.name"
         required
         minlength="3"
-        maxlength="20"
+        maxlength="50"
         #name="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
         />
@@ -44,7 +44,7 @@
         [(ngModel)]="form.description"
         required
         minlength="3"
-        maxlength="20"
+        maxlength="200"
         #description="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && description.errors }"
         />
