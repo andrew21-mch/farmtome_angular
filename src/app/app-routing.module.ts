@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'inputs/details', component: InputDetailsComponent },
   { path: 'inputs/create', component: CreateInputComponent },
   { path: 'orders', component: ViewOrdersComponent},
-  { path: 'order/place', component: PlaceOrderComponent },
+  { path: 'orders/place', component: PlaceOrderComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

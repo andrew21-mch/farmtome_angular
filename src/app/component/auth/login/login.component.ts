@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         this.isSignUpFailed = false;
       },
       error: err => {
-        this.errorMessage = err.error;
+        this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
       }
     });

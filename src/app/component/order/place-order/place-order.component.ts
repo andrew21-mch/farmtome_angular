@@ -52,6 +52,10 @@ export class PlaceOrderComponent implements OnInit {
         this.errorMessage = err.error.message;
         this.isCreatedFailed = true;
         this.isLoading = false;
+        localStorage.removeItem('productId');
+        localStorage.removeItem('agroInputId');
+        localStorage.removeItem('supplier_shop_id');
+        localStorage.removeItem('farmId');
       }
     )
 

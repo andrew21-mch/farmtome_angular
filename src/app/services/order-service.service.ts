@@ -3,7 +3,7 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-const order_route = environment.production ? 'https://agroconnect.herokuapp.com/api/v1/orders' : 'http://localhost:8000/api/v1/orders/';
+const order_route = environment.production ? 'https://agroconnect.herokuapp.com/api/v1/orders' : 'http://localhost:8000/api/v1/orders';
 const httpOptions = {
   headers: new HttpHeaders(
     {
