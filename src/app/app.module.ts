@@ -23,6 +23,8 @@ import { InputsComponent } from './component/input/inputs/inputs.component';
 import { CreateInputComponent } from './component/input/create-input/create-input.component';
 import { ProductsComponent } from './component/products/products/products.component';
 import { ProductDetailsComponent } from './component/products/details/product-details.component';
+import { ViewOrdersComponent } from './component/order/view-orders/view-orders.component';
+import { PlaceOrderComponent } from './component/order/place-order/place-order.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ProductDetailsComponent } from './component/products/details/product-de
     InputsComponent,
     CreateInputComponent,
     ProductDetailsComponent,
-    InputDetailsComponent
+    InputDetailsComponent,
+    ViewOrdersComponent,
+    PlaceOrderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,99 @@
+
+<div class="row col-md-6 m-auto mb-5">
+  <h3 class="card-title text-center text-warning mt-4"></h3>
+  <hr class="w-25 m-auto">
+  <form
+    *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="f.form.valid && placeOrder()"
+    #f="ngForm"
+    novalidate>
+    <!-- address -->
+
+    <!-- Delivery method -->
+    <div class="form-group">
+      <label for="delivery_method">Delivery method</label>
+      <select
+        class="form-control"
+        name="delivery_method"
+        [(ngModel)]="form.delivery_method"
+        required
+        #delivery_method="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && delivery_method.errors }"
+        >
+        <option value="mobile_money">
+          Pickup
+        </option>
+        <option value="cash">
+          Drop
+        </option>
+      </select>
+      <div class="invalid-feedback" *ngIf="delivery_method.errors && f.submitted">
+        <div *ngIf="delivery_method.errors['required']">input is required</div>
+      </div>
+    </div>
+
+    <!-- select payement method -->
+    <div class="form-group">
+      <label for="payment_method">Payment method</label>
+      <select
+        class="form-control"
+        name="payment_method"
+        [(ngModel)]="form.payment_method"
+        required
+        #payment_method="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && payment_method.errors }"
+        >
+        <option value="mobile_money">
+          Mobile money
+        </option>
+        <option value="cash">
+          Cash of Delivery
+        </option>
+      </select>
+      <div class="invalid-feedback" *ngIf="payment_method.errors && f.submitted">
+        <div *ngIf="payment_method.errors['required']">input is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="delivery_address">Delivery Address</label>
+      <input
+        type="text"
+        class="form-control"
+        name="delivery_address"
+        [(ngModel)]="form.delivery_address"
+        required
+        minlength="5"
+        maxlength="50"
+        #delivery_address="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && delivery_address.errors }"
+        />
+      <div class="invalid-feedback" *ngIf="delivery_address.errors && f.submitted">
+        <div *ngIf="delivery_address.errors['required']">Address is required</div>
+        <div *ngIf="delivery_address.errors['minlength']">
+          price must be at least 3 characters
+        </div>
+        <div *ngIf="delivery_address.errors['maxlength']">
+          price must be at most 6 characters
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary btn-block">
+        <!-- show loading if -->
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm"></span>
+        Create
+      </button>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="f.submitted && isCreatedFailed">
+      input input creation failed!<br />{{ errorMessage }}
+    </div>
+  </form>
+  <div class="alert alert-success" *ngIf="isSuccessful && !isCreatedFailed">
+    {{ successMessage }}
+  </div>
+</div>
+
+<router-outlet></router-outlet>

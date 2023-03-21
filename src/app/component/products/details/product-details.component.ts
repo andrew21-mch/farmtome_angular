@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,6 +13,7 @@ export class ProductDetailsComponent implements OnInit {
   productid: string = '';
   constructor(
     private productService: ProductService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +37,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   placeOrder(productId: string) {
-    console.log('place order')
+    localStorage.setItem('productId', productId);
+    this.router.navigate(['order/place'])
   }
 
 

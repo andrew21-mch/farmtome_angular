@@ -1,5 +1,6 @@
 import { AgroInputService } from './../../../services/agro-input.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-input-details',
@@ -12,6 +13,7 @@ export class InputDetailsComponent implements OnInit {
   inputId: string = '';
   constructor(
     private inputService: AgroInputService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class InputDetailsComponent implements OnInit {
   }
 
   placeOrder(input: string) {
-    console.log('place order')
+    localStorage.setItem('agroInputId', input);
+    this.router.navigate(['order/place'])
   }
 }

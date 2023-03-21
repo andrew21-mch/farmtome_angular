@@ -1,3 +1,4 @@
+import { PlaceOrderComponent } from './component/order/place-order/place-order.component';
 
 import { CreateInputComponent } from './component/input/create-input/create-input.component';
 
@@ -30,10 +31,11 @@ const routes: Routes = [
   { path: 'farms', component: FarmsComponent },
   { path: 'supply_shops', component: SupplyShopsComponent },
   { path: 'products/create', component: CreateComponent },
-  { path: 'products/details', component: ProductDetailsComponent},
+  { path: 'products/details', component: ProductDetailsComponent },
   { path: 'inputs', component: InputsComponent },
-  { path: 'inputs/details', component: InputDetailsComponent},
+  { path: 'inputs/details', component: InputDetailsComponent },
   { path: 'inputs/create', component: CreateInputComponent },
+  { path: 'order/place', component: PlaceOrderComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
