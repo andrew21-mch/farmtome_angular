@@ -22,7 +22,7 @@ import { InputDetailsComponent } from './component/input/details/input-details.c
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: BodyComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
@@ -37,9 +37,8 @@ const routes: Routes = [
   { path: 'inputs/details', component: InputDetailsComponent },
   { path: 'inputs/create', component: CreateInputComponent },
   { path: 'orders', component: ViewOrdersComponent},
-  { path: 'orders/place', component: PlaceOrderComponent },
-  // when user refreshes the page, the router should stay on the same page
-  { path: '**', redirectTo: window.location.pathname }
+  { path: 'order/place', component: PlaceOrderComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
