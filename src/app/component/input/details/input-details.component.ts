@@ -40,7 +40,7 @@ export class InputDetailsComponent implements OnInit {
   placeOrder(input: string, supplier_shop_id: string) {
     localStorage.setItem('agroInputId', input);
     localStorage.setItem('supplier_shop_id', supplier_shop_id);
-    this.router.navigate(['order/place'])
+    this.router.navigate(['orders/place'])
   }
 
   isAuthenticated(): boolean {

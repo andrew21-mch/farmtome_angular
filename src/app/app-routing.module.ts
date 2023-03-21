@@ -1,8 +1,5 @@
 import { ViewOrdersComponent } from './component/order/view-orders/view-orders.component';
-import { PlaceOrderComponent } from './component/order/place-order/place-order.component';
-
 import { CreateInputComponent } from './component/input/create-input/create-input.component';
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './component/auth/login/login.component';
@@ -19,6 +16,7 @@ import { SupplyShopsComponent } from './component/supplyshops/show/supply-shops.
 import { ProductsComponent } from './component/products/products/products.component';
 import { ProductDetailsComponent } from './component/products/details/product-details.component';
 import { InputDetailsComponent } from './component/input/details/input-details.component';
+import { PlaceOrderComponent } from './component/order/place-order/place-order.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -37,7 +35,7 @@ const routes: Routes = [
   { path: 'inputs/details', component: InputDetailsComponent },
   { path: 'inputs/create', component: CreateInputComponent },
   { path: 'orders', component: ViewOrdersComponent},
-  { path: 'order/place', component: PlaceOrderComponent },
+  { path: 'orders/place', component: PlaceOrderComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

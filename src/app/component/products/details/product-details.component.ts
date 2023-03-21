@@ -41,7 +41,7 @@ export class ProductDetailsComponent implements OnInit {
   placeOrder(productId: string, farmId: string) {
     localStorage.setItem('productId', productId);
     localStorage.setItem('farmId', farmId);
-    this.router.navigate(['order/place'])
+    this.router.navigate(['orders/place'])
   }
 
 
