@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class ProductDetailsComponent implements OnInit {
   productid: string = '';
   constructor(
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private authService: AuthServiceService,
   ) { }
 
   ngOnInit(): void {
@@ -43,4 +45,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
 
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 }

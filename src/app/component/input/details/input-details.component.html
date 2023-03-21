@@ -33,11 +33,10 @@
         </div>
         <div class="row mt-3">
           <div class="col-md-6">
-            <a class="btn btn-primary" *ngIf="isAuthenticated()">
+            <button class="btn btn-primary" (click)="placeOrder(input.id, input.supplier_shop.id)" *ngIf="isAuthenticated()">
               <i class="fas fa-shopping-cart"></i> Place Order
-            </a>
-            <a class="btn btn-primary" *ngIf="!isAuthenticated()"
-              [routerLink]="['/login']">
+            </button>
+            <a class="btn btn-primary" *ngIf="!isAuthenticated()" routerLink="/login">
               <i class="fas login-icon"></i> Login to Place Order
             </a>
           </div>
