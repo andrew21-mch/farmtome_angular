@@ -42,26 +42,20 @@
           </a>
 
         </li>
-      </ul>
-
-      <ul class="navbar-nav ml-auto mt-2 mt-md-0">
-        <div *ngIf="isAuthenticated()">
-          <div class="pr-2">
-            <a class="py-1 btn btn-warning btn-md" routerLinkActive="active"
-              ariaCurrentWhenActive="page" (click)="logout()">Logout</a>
-          </div>
-        </div>
-        <!-- if the user is not logged in, show login and register -->
-        <div *ngIf="!isAuthenticated()" class="d-flex">
-          <div class="pr-2">
-            <a class="py-1 btn btn-warning btn-sm" routerLink="/login"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
-          </div>
-          <div class="pl-2">
-            <a class="py-1 btn btn-warning btn-sm" routerLink="/register"
-              routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
-          </div>
-        </div>
+        <!-- login and register -->
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link text-white fs-7 " routerLink="/login"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated()">
+          <a class="nav-link text-white fs-7 " routerLink="/register"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
+        </li>
+        <!-- logout -->
+        <li class="nav-item" *ngIf="isAuthenticated()">
+          <a class="nav-link text-white fs-7 " (click)="logout()"
+            routerLinkActive="active" ariaCurrentWhenActive="page">Logout</a>
+        </li>
       </ul>
     </div>
   </nav>

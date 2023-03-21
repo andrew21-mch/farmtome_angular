@@ -46,8 +46,9 @@
             <div class="row">
               <div class="col-md-8">
                 <p class="card-text">
-                  <i class="fas fa-phone text-warning"></i>
-                  {{ product.farmerPhone }}
+                  <i class="fas fa-phone text-warning" *ngIf="isAuthenticated()"> {{ product.farmerPhone }}</i>
+                  <i class="fas fa-phone" *ngIf="!isAuthenticated()"> Login to view phone number</i>
+
                 </p>
               </div>
               <div class="col-md-4">

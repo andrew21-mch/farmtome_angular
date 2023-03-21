@@ -7,7 +7,8 @@
       </div>
 
     </div>
-    <div class="hero-content mt-5 mb-5 text-center">
+    <div class="hero welcome">
+    <div class="hero-content mt-5 mb-5 text-center card-body ">
       <h1 class="hero-title">Welcome to <span class="text_warning">Farmers
           Market</span></h1>
       <p class="hero-text">We are a platform that connects farmers to
@@ -23,6 +24,7 @@
         [routerLink]="['/supply_shops']">View
         Shop</a>
     </div>
+  </div>
     <form
       name="form"
       (ngSubmit)="f.form.valid && generalSearch()" #f="ngForm"

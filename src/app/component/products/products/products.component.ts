@@ -92,5 +92,9 @@ export class ProductsComponent implements OnInit {
       this.router.navigate(['/products/details'])
     }
 
+    isAuthenticated(): boolean {
+      return this.authService.isAuthenticated();
+    }
+
 
 }

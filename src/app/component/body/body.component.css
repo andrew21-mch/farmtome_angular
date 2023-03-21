@@ -28,6 +28,15 @@ a:hover {
   .col-md-2 {
     max-width: 40%;
   }
+
+  .hero {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 /* laptop media */
@@ -42,6 +51,14 @@ a:hover {
     max-width: 260px;
     /* give some small space */
     margin: 0 10px;
+  }
+
+  .hero {
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
 }

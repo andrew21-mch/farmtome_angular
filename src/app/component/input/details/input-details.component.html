@@ -25,8 +25,9 @@
         </div>
         <div class="team-member-social">
           <!-- phone number -->
-          <a href="#" class="team-member-social-link m-2"><i class="fas fa-phone
-              text-warning"> {{ input.supplierPhone }}</i></a>
+          <a href="#" class="team-member-social-link m-2"><i class="fas fa-phone text-warning" *ngIf="isAuthenticated()"> {{ input.supplierPhone }}</i>
+            <i class="fas fa-phone" *ngIf="!isAuthenticated()"> Login to view phone number</i>
+            </a>
           <!-- price -->
           <a href="#" class="team-member-social-link m-2"><i class="fas
               fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>

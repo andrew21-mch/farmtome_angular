@@ -26,15 +26,17 @@
         </div>
         <div class="team-member-social">
           <!-- phone number -->
-          <a href="#" class="team-member-social-link m-2"><i class="fas fa-phone
-              text-warning"> {{ product.farmerPhone }}</i></a>
+          <a href="#" class="team-member-social-link m-2" >
+            <i class="fas fa-phone text-warning" *ngIf="isAuthenticated()"> {{ product.farmerPhone }}</i>
+            <i class="fas fa-phone" *ngIf="!isAuthenticated()"> Login to view phone number</i>
+            </a>
           <!-- price -->
           <a href="#" class="team-member-social-link m-2"><i class="fas
               fa-money-bill-wave text-warning"> {{ product.price }} XAF</i></a>
         </div>
         <div class="row mt-3">
           <div class="col-md-6">
-            <button class="btn btn-primary" (click)="placeOrder(product.id, product.farm.id)">
+            <button class="btn btn-primary" (click)="placeOrder(product.id, product.farm.id)" *ngIf="isAuthenticated()">
               <i class="fas fa-shopping-cart"></i> Place Order
             </button>
             <a class="btn btn-primary" *ngIf="!isAuthenticated()" routerLink="/login">
