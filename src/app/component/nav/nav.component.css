@@ -62,3 +62,7 @@
     color: antiquewhite;
     background-color: #3d826d;
 }
+
+.fa-shopping-cart:hover{
+    cursor: pointer;
+}

@@ -30,6 +30,8 @@ export class OrderServiceService {
       payment_method: formData.get('payment_method'),
       product_id: formData.get('product_id'),
       agro_input_id: formData.get('agro_input_id'),
+      farm_id: formData.get('farm_id'),
+      supplier_shop_id: formData.get('supplier_shop_id'),
     },
       httpOptions);
 

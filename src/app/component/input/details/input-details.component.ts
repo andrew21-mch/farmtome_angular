@@ -36,8 +36,9 @@ export class InputDetailsComponent implements OnInit {
     console.log('add to cart')
   }
 
-  placeOrder(input: string) {
+  placeOrder(input: string, supplier_shop_id: string) {
     localStorage.setItem('agroInputId', input);
+    localStorage.setItem('supplier_shop_id', supplier_shop_id);
     this.router.navigate(['order/place'])
   }
 }

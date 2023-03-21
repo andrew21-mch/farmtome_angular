@@ -34,6 +34,14 @@
           <a class="nav-link text-white fs-7 " routerLink="/supply_shops"
             routerLinkActive="active" ariaCurrentWhenActive="page">Shops</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white fs-7 " (click)="getMyOrders()"
+            routerLinkActive="active" ariaCurrentWhenActive="page">
+            <i class="fas fa-shopping-cart table-hover"></i>
+          </a>
+
+        </li>
       </ul>
 
       <ul class="navbar-nav ml-auto mt-2 mt-md-0">

@@ -3,6 +3,16 @@
   <div class="card-header">
     <h3 class="card-title text-center">My Supply Shops</h3>
   </div>
+  <div class="card-header">
+    <a [routerLink]="['/shops/create']" class="btn btn-warning">
+      <i class="fas fa-plus"></i>
+      Add Supply Shop
+    </a>
+    <a class="btn btn-warning" (click)="showOrders()" *ngIf="checkRole('supplier')">
+      <i class="fas fa-shopping-cart"></i>
+      Orders
+    </a>
+  </div>
   <div class="card-body">
     <!-- show shops on cards -->
     <div class="row">

@@ -1,4 +1,7 @@
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/services/general.service';
 import { SupplyShopService } from 'src/app/services/supply-shop.service';
 
 @Component({
@@ -12,6 +15,8 @@ export class SupplyShopsComponent implements OnInit {
 
   constructor(
     private shopService: SupplyShopService,
+    private router: Router,
+    private authService: AuthServiceService,
   ) { }
 
   shops: any = [];
@@ -40,5 +45,13 @@ export class SupplyShopsComponent implements OnInit {
         this.getUserShops();
       }
     );
+  }
+
+  showOrders(){
+    this.router.navigate(['/orders']);
+  }
+
+  checkRole(role: string): boolean{
+    return this.authService.checkRole(role);
   }
 }

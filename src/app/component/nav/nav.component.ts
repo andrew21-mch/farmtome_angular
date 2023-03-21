@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class NavComponent implements OnInit {
 
   toggleNavbar = true;
   constructor(
-    private authService: AuthServiceService
+    private authService: AuthServiceService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,14 @@ export class NavComponent implements OnInit {
 
   checkRole(role: string): boolean {
     return this.authService.checkRole(role);
+  }
+
+  ViewOrders(): void {
+    this.router.navigate(['/orders']);
+  }
+
+  getMyOrders(): void {
+    this.router.navigate(['/orders']);
   }
 
 

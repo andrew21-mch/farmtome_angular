@@ -35,6 +35,8 @@ export class PlaceOrderComponent implements OnInit {
     this.formData.append('payment_method', this.form.payment_method);
     this.formData.append('product_id', localStorage.getItem('productId') || '');
     this.formData.append('agro_input_id', localStorage.getItem('agroInputId') || '')
+    this.formData.append('supplier_shop_id', localStorage.getItem('supplier_shop_id') || '')
+    this.formData.append('farm_id', localStorage.getItem('farmId') || '')
     return this.orderService.placeOrder(this.formData).subscribe(
       (res: any) => {
         this.isSuccessful = true;
@@ -43,13 +45,13 @@ export class PlaceOrderComponent implements OnInit {
         this.isLoading = false;
         localStorage.removeItem('productId');
         localStorage.removeItem('agroInputId');
+        localStorage.removeItem('supplier_shop_id');
+        localStorage.removeItem('farmId');
       },
       (err: any) => {
         this.errorMessage = err.error.message;
         this.isCreatedFailed = true;
         this.isLoading = false;
-        localStorage.removeItem('productId');
-        localStorage.removeItem('agroInputId');
       }
     )
 

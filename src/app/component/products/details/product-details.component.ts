@@ -36,8 +36,9 @@ export class ProductDetailsComponent implements OnInit {
     console.log('add to cart')
   }
 
-  placeOrder(productId: string) {
+  placeOrder(productId: string, farmId: string) {
     localStorage.setItem('productId', productId);
+    localStorage.setItem('farmId', farmId);
     this.router.navigate(['order/place'])
   }
 

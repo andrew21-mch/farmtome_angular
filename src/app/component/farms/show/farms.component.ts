@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { FarmService } from "src/app/services/farm.service";
+import { GeneralService } from "src/app/services/general.service";
 
 
 @Component({
@@ -12,9 +14,11 @@ export class FarmsComponent implements OnInit {
 
   constructor(
     private farmService: FarmService,
+    private router: Router,
   ) { }
 
   farms: any = [];
+  orders: any = [];
   message: string = '';
   isSuccessful: boolean = false
   isLoaded: boolean = false;
@@ -42,6 +46,10 @@ export class FarmsComponent implements OnInit {
         this.getUserFarms();
       }
     );
+  }
+
+  showOrders(){
+    this.router.navigate(['/orders']);
   }
 
 }

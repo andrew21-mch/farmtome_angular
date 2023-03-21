@@ -3,6 +3,17 @@
   <div class="card-header">
     <h3 class="card-title text-center">My Farms</h3>
   </div>
+  <div class="card-header">
+    <a [routerLink]="['/farms/create']" class="btn btn-primary">
+      <i class="fas fa-plus"></i>
+      Add Farm
+    </a>
+    <a class="btn btn-primary" (click)="showOrders()">
+      <i class="fas fa-shopping-cart"></i>
+      View Orders
+    </a>
+  </div>
+
   <div class="card-body">
     <!-- show farms on cards -->
     <div class="row">

@@ -1,3 +1,4 @@
+import { ViewOrdersComponent } from './component/order/view-orders/view-orders.component';
 import { PlaceOrderComponent } from './component/order/place-order/place-order.component';
 
 import { CreateInputComponent } from './component/input/create-input/create-input.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'inputs', component: InputsComponent },
   { path: 'inputs/details', component: InputDetailsComponent },
   { path: 'inputs/create', component: CreateInputComponent },
+  { path: 'orders', component: ViewOrdersComponent},
   { path: 'order/place', component: PlaceOrderComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
