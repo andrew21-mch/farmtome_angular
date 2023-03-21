@@ -25,6 +25,7 @@ export class InputsComponent implements OnInit {
   ngOnInit(): void {
     this.getInputs();
     this.userid = this.getLoggedInUser();
+
   }
   getInputs() {
     const inputs = this.inputService.getInputs().subscribe(
@@ -77,15 +78,23 @@ export class InputsComponent implements OnInit {
   }
 
   // get loggedIn user as array
-    // get logged in user as an array
-    getLoggedInUser(): string {
-      const user = localStorage.getItem('user');
-      const id = JSON.parse(user!).id;
-      return id;
+  // get logged in user as an array
+  getLoggedInUser(): string {
+    const user = localStorage.getItem('user');
+    if(user === null) {
+      return '';
+    }else{
+      return JSON.parse(user!).id;
     }
 
-    showInputDetails(id: string) {
-      localStorage.setItem('inputId', id);
-      this.router.navigate(['/inputs/details']);
-    }
+  }
+
+  showInputDetails(id: string) {
+    localStorage.setItem('inputId', id);
+    this.router.navigate(['inputs/details']);
+  }
+
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
 }

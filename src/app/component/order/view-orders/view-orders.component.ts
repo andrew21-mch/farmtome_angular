@@ -71,4 +71,8 @@ export class ViewOrdersComponent implements OnInit {
     );
   }
 
+  isAuthenticated(): boolean{
+    return this.authService.isAuthenticated();
+  }
+
 }

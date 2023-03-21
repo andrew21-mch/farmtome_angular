@@ -1,6 +1,7 @@
 import { AgroInputService } from './../../../services/agro-input.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-input-details',
@@ -13,12 +14,12 @@ export class InputDetailsComponent implements OnInit {
   inputId: string = '';
   constructor(
     private inputService: AgroInputService,
-    private router: Router
+    private router: Router,
+    private authService: AuthServiceService,
   ) { }
 
   ngOnInit(): void {
     this.inputId = localStorage.getItem('inputId') || '';
-    console.log(this.inputId)
     this.getInput();
 
   }
@@ -40,5 +41,9 @@ export class InputDetailsComponent implements OnInit {
     localStorage.setItem('agroInputId', input);
     localStorage.setItem('supplier_shop_id', supplier_shop_id);
     this.router.navigate(['order/place'])
+  }
+
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
   }
 }

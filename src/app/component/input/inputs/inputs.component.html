@@ -59,7 +59,7 @@
             </div>
           </div>
           <!-- place order -->
-          <div class="card-footer">
+          <div class="card-footer" *ngIf="isAuthenticated()">
             <!-- if input farmer_id is equal to loggedIn user id then show edit and delete -->
             <a [routerLink]="['/inputs', input.id, 'edit']" class="text-warning" *ngIf="input.farmer_id === userid">
               <i class="fas fa-edit "></i>

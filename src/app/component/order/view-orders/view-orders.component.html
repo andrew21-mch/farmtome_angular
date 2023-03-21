@@ -219,6 +219,9 @@
                 <tr class="text-center">
                   <td colspan="9">
                     <p class="text-center ">No orders yet</p>
+                    <p class="text-center" *ngIf="!isAuthenticated()">
+                      <a routerLink="/login">Login</a> to view your orders
+                    </p>
                   </td>
                 </tr>
               </tbody>
