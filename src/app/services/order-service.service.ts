@@ -43,7 +43,7 @@ export class OrderServiceService {
 
   deleteOrder(id: string): Observable<any> {
     return this.http.delete(
-      environment.production ? order_route + '/' + id : order_route,
+      environment.production ? order_route + '/' + id : order_route + id,
       httpOptions
     )
   }
