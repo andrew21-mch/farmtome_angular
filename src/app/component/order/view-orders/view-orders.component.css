@@ -2,3 +2,7 @@
   background-color: #f5a945;
   border-color: transparent;
 }
+
+.badge{
+  cursor: pointer;
+}
