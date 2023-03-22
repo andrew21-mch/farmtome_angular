@@ -90,7 +90,13 @@
           <div class="team-member-social">
             <!-- phone number -->
             <a class="team-member-social-link m-2"><i class="fas
-                fa-phone text-warning "> {{ product.farmerPhone }}</i></a>
+                fa-phone text-warning " *ngIf="isLoggedIn()">
+                {{ product.farmerPhone }}</i></a>
+                <a class="team-member-social-link m-2"><i class="fas
+                fa-phone text-warning " *ngIf="!isLoggedIn()"
+                routerLink="/login">
+                {{ hidePhone(product.farmerPhone) }}
+              </i></a>
             <!-- price -->
             <a class="team-member-social-link m-2"><i class="fas
                 fa-money-bill-wave text-warning"> {{ product.price }} XAF</i></a>
@@ -147,7 +153,13 @@
           <div class="team-member-social">
             <!-- phone number -->
             <a class="team-member-social-link m-2"><i class="fas
-                fa-phone text-warning"> {{ input.supplierPhone }}</i></a>
+              fa-phone text-warning " *ngIf="isLoggedIn()">
+              {{ input.supplierPhone }}</i></a>
+              <a class="team-member-social-link m-2"><i class="fas
+              fa-phone text-warning " *ngIf="!isLoggedIn()"
+              routerLink="/login">
+             {{ hidePhone(input.supplierPhone) }}
+            </i></a>
             <!-- price -->
             <a class="team-member-social-link m-2"><i class="fas
                 fa-money-bill-wave text-warning"> {{ input.price }} XAF</i></a>

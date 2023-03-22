@@ -145,5 +145,12 @@ export class BodyComponent implements OnInit {
     this.router.navigate(['/inputs/details']);
   }
 
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
+  hidePhone(phone: string) {
+    return phone.slice(0, 4) + '****' + phone.slice(8, 11);
+  }
 
 }
