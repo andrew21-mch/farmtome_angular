@@ -19,8 +19,7 @@ export class PlaceOrderComponent implements OnInit {
   isSuccessful = false;
   isCreatedFailed = false;
   isLoading = false;
-  errorMessage = '';
-  successMessage = '';
+  message = '';
 
   constructor(
     private readonly orderService: OrderServiceService,
@@ -40,8 +39,7 @@ export class PlaceOrderComponent implements OnInit {
     return this.orderService.placeOrder(this.formData).subscribe(
       (res: any) => {
         this.isSuccessful = true;
-        this.isCreatedFailed = false;
-        this.successMessage = res.message;
+        this.message = res.message;
         this.isLoading = false;
         localStorage.removeItem('productId');
         localStorage.removeItem('agroInputId');
@@ -49,9 +47,11 @@ export class PlaceOrderComponent implements OnInit {
         localStorage.removeItem('farmId');
       },
       (err: any) => {
-        this.errorMessage = err.error.message;
+        this.message = err.error.message;
         this.isCreatedFailed = true;
+        this.isSuccessful = false;
         this.isLoading = false;
+        console.log(err)
         localStorage.removeItem('productId');
         localStorage.removeItem('agroInputId');
         localStorage.removeItem('supplier_shop_id');

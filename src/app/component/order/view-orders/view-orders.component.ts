@@ -2,6 +2,7 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from 'src/app/services/general.service';
 import { OrderServiceService } from 'src/app/services/order-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-orders',
@@ -13,7 +14,8 @@ export class ViewOrdersComponent implements OnInit {
   constructor(
     private generalService: GeneralService,
     private authService: AuthServiceService,
-    private orderService: OrderServiceService
+    private orderService: OrderServiceService,
+    private router: Router
   ) { }
 
   orders: any = [];
@@ -23,6 +25,7 @@ export class ViewOrdersComponent implements OnInit {
   isSuccessful: boolean = false
 
   ngOnInit(): void {
+    this.message = this.router.getCurrentNavigation()?.extras?.queryParams?.['message'];
     this.showOrders();
     this.getMyOrders();
 
@@ -43,22 +46,20 @@ export class ViewOrdersComponent implements OnInit {
       (res) => {
         this.isSuccessful = true,
         this.isLoaded = true,
-        this.getMyOrders
-        this.message = res
-      },
+        this.ngOnInit();
+        this.message = res.message;
+        },
     );
   }
 
   paidOrder(id: string) {
-    console.log(id)
+
   }
 
   approveOrder(id: string) {
-    console.log(id)
   }
 
   rejectOrder(id: string) {
-    console.log(id)
   }
 
   checkRole(role: string): boolean {

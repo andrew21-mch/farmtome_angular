@@ -19,8 +19,7 @@
         [(ngModel)]="form.delivery_method"
         required
         #delivery_method="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && delivery_method.errors }"
-        >
+        [ngClass]="{ 'is-invalid': f.submitted && delivery_method.errors }">
         <option value="mobile_money">
           Pickup
         </option>
@@ -28,7 +27,8 @@
           Drop
         </option>
       </select>
-      <div class="invalid-feedback" *ngIf="delivery_method.errors && f.submitted">
+      <div class="invalid-feedback" *ngIf="delivery_method.errors &&
+        f.submitted">
         <div *ngIf="delivery_method.errors['required']">input is required</div>
       </div>
     </div>
@@ -42,8 +42,7 @@
         [(ngModel)]="form.payment_method"
         required
         #payment_method="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && payment_method.errors }"
-        >
+        [ngClass]="{ 'is-invalid': f.submitted && payment_method.errors }">
         <option value="mobile_money">
           Mobile money
         </option>
@@ -51,7 +50,8 @@
           Cash of Delivery
         </option>
       </select>
-      <div class="invalid-feedback" *ngIf="payment_method.errors && f.submitted">
+      <div class="invalid-feedback" *ngIf="payment_method.errors &&
+        f.submitted">
         <div *ngIf="payment_method.errors['required']">input is required</div>
       </div>
     </div>
@@ -69,7 +69,8 @@
         #delivery_address="ngModel"
         [ngClass]="{ 'is-invalid': f.submitted && delivery_address.errors }"
         />
-      <div class="invalid-feedback" *ngIf="delivery_address.errors && f.submitted">
+      <div class="invalid-feedback" *ngIf="delivery_address.errors &&
+        f.submitted">
         <div *ngIf="delivery_address.errors['required']">Address is required</div>
         <div *ngIf="delivery_address.errors['minlength']">
           price must be at least 3 characters
@@ -87,13 +88,40 @@
       </button>
     </div>
 
-    <div class="alert alert-danger vh-50" *ngIf="f.submitted && isCreatedFailed">
-      Could not place order!<br />{{ errorMessage }}
+
+    <div *ngIf="f.submitted && isCreatedFailed" >
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="message" >
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="message = ''">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              {{ message }}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </form>
-  <div class="alert alert-success vh-50" *ngIf="isSuccessful && !isCreatedFailed">
-    {{ successMessage }}
+
+  <div *ngIf="isSuccessful" style="height: 50vh;">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col">
+          <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message" >
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="message = ''">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+          </div>
+
+          <a routerLink="/orders" class="btn btn-primary btn-block">Go to orders</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<router-outlet></router-outlet>
+
+  <router-outlet></router-outlet>

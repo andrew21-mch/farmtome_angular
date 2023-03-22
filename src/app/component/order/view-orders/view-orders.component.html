@@ -1,4 +1,17 @@
 <!-- show all orders -->
+<!-- show message from query params -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="message = ''">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message }}
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container" *ngIf="checkRole('farmer') || checkRole('supplier')">
   <div class="row">
