@@ -87,11 +87,11 @@
       </button>
     </div>
 
-    <div class="alert alert-danger" *ngIf="f.submitted && isCreatedFailed">
-      input input creation failed!<br />{{ errorMessage }}
+    <div class="alert alert-danger vh-50" *ngIf="f.submitted && isCreatedFailed">
+      Could not place order!<br />{{ errorMessage }}
     </div>
   </form>
-  <div class="alert alert-success" *ngIf="isSuccessful && !isCreatedFailed">
+  <div class="alert alert-success vh-50" *ngIf="isSuccessful && !isCreatedFailed">
     {{ successMessage }}
   </div>
 </div>

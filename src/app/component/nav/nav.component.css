@@ -66,3 +66,6 @@
 .fa-shopping-cart:hover{
     cursor: pointer;
 }
+.nav-item:hover{
+  cursor: pointer;
+}
