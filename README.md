@@ -47,4 +47,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Link to Figma file and prototype
 
-- Pending
+- [Figma File](https://www.figma.com/file/i0Jtmn3sPELOByEaDBLHph/AgroConnect?node-id=0-1&t=AyEJ7MqTL0OSmzO2-0)
+- [Youtube Video](https://youtu.be/pyXFWPh9vG4)
