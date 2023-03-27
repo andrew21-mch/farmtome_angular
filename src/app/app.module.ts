@@ -25,6 +25,7 @@ import { ProductsComponent } from './component/products/products/products.compon
 import { ProductDetailsComponent } from './component/products/details/product-details.component';
 import { ViewOrdersComponent } from './component/order/view-orders/view-orders.component';
 import { PlaceOrderComponent } from './component/order/place-order/place-order.component';
+import { FtSharedModule } from './module/ft-shared/ft-shared.module';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PlaceOrderComponent } from './component/order/place-order/place-order.c
     FormsModule,
     HttpClientModule,
     NgbModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    FtSharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

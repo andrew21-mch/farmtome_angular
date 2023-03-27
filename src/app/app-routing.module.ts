@@ -36,6 +36,26 @@ const routes: Routes = [
   { path: 'inputs/create', component: CreateInputComponent },
   { path: 'orders', component: ViewOrdersComponent},
   { path: 'orders/place', component: PlaceOrderComponent },
+
+  // for the customer module
+  { 
+    path: 'consumer', 
+    loadChildren: () => import('./module/ft-consumer/ft-consumer.module').then(m => m.FtConsumerModule)
+  },
+
+  // for the professional module
+  {
+    path: 'professional', 
+    loadChildren: () => import('./module/ft-professional/ft-professional.module').then(m => m.FtProfessionalModule) 
+  },
+
+  // for the farmer module
+  {
+    path: 'farmer', 
+    loadChildren: () => import('./module/ft-farmer/ft-farmer.module').then(m => m.FtFarmerModule) 
+  },
+ 
+ 
   { path: '**', component: PageNotFoundComponent }
 ];
 
