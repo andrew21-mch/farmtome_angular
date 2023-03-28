@@ -11,3 +11,14 @@ body {
     height: 100vh;
     width: 100%;
 }
+
+.bg-color-green {
+    background-color: #3d826d !important;
+    color: #ffffff;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight {
+    border-color: #3d826d !important;
+    background: #3d826d !important;
+    color: #ffffff !important;
+}
