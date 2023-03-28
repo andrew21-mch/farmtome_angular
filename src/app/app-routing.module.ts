@@ -54,6 +54,7 @@ const routes: Routes = [
     path: 'farmer', 
     loadChildren: () => import('./module/ft-farmer/ft-farmer.module').then(m => m.FtFarmerModule) 
   },
+  { path: 'auth', loadChildren: () => import('./module/ft-auth/ft-auth.module').then(m => m.FtAuthModule) },
  
  
   { path: '**', component: PageNotFoundComponent }

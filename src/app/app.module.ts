@@ -8,7 +8,7 @@ import { NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavComponent } from './component/nav/nav.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { BodyComponent } from './component/body/body.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './component/auth/login/login.component';
 import { RegisterComponent } from './component/auth/register/register.component';
@@ -48,7 +48,8 @@ import { FtSharedModule } from './module/ft-shared/ft-shared.module';
     ProductDetailsComponent,
     InputDetailsComponent,
     ViewOrdersComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,9 @@ import { FtSharedModule } from './module/ft-shared/ft-shared.module';
     HttpClientModule,
     NgbModule,
     NgbCollapseModule,
-    FtSharedModule
+    FtSharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
