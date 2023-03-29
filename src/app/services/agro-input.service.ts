@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const agro_inputs_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/AgroInputs' : 'http://localhost:8000/api/v1/AgroInputs';
+const agro_inputs_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/AgroInputs' : environment.host+'/api/v1/AgroInputs';
 
 const httpOptions = {
   headers: new HttpHeaders(

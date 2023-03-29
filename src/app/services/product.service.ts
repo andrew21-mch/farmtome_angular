@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 
-const product_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/products' : 'http://localhost:8000/api/v1/products';
+const product_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/products' : environment.host+'/api/v1/products';
 const httpOptions = {
   headers: new HttpHeaders(
     {

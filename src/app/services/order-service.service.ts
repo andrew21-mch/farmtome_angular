@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
-const order_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/orders' : 'http://localhost:8000/api/v1/orders/';
+const order_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/orders' : environment.host+'/api/v1/orders/';
 
 const httpOptions = {
   headers: new HttpHeaders(

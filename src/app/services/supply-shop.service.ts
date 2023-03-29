@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const shop_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/supply_shops' : 'http://localhost:8000/api/v1/supply_shops/';
+const shop_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/supply_shops' : environment.host+'/api/v1/supply_shops/';
 const httpOptions = {
   headers: new HttpHeaders(
     {
