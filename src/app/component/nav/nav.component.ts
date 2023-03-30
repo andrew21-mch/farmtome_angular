@@ -10,7 +10,6 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 })
 export class NavComponent implements OnInit {
 
-  toggleNavbar = true;
   constructor(
     private authService: AuthServiceService,
     private router: Router,
