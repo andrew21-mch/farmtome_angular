@@ -57,10 +57,9 @@ import { FtSharedModule } from './module/ft-shared/ft-shared.module';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    NgbCollapseModule,
     FtSharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FtSharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
