@@ -17,8 +17,21 @@ body {
     color: #ffffff;
 }
 
+.btn-green {
+    background-color: #3d826d;
+    color: #ffffff;
+}
+
 .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight {
     border-color: #3d826d !important;
     background: #3d826d !important;
     color: #ffffff !important;
+}
+
+.navbar-toggler {
+    background-color: #3d826d;
+}
+
+.border-round-bottom {
+    border-bottom-right-radius: 50px !important;
 }
