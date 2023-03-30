@@ -1,0 +1,26 @@
+.navbar .nav-item .selected{
+    position: relative;
+    color: #3d826d !important;
+
+}
+.navbar .nav-item .selected::after{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    margin: auto;
+    content: "";
+    background-color:#3d826d;
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+}
+
+.border-round-bottom {
+    border-bottom-left-radius: var(--border-radius) !important;
+    border-bottom-right-radius: 20px !important;
+}
+
+.navbar .nav-item:hover{
+    background-color: rgba(61, 130, 109, 0.2);
+    backdrop-filter: blur(3px);
+}

@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { FtSharedModule } from '../ft-shared/ft-shared.module';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 
@@ -17,7 +18,13 @@ import { FtSharedModule } from '../ft-shared/ft-shared.module';
   ],
   imports: [
     CommonModule,
-    FtSharedModule
+    FtSharedModule,
+    AppRoutingModule
+  ],
+  exports: [
+    NavBarComponent,
+    PageNotFoundComponent,
+    SideBarComponent
   ]
 })
 export class FtReusableModule { }
