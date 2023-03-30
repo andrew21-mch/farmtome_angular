@@ -1,63 +1,77 @@
-<header class="bg-dark navigation">
-  <nav class="navbar navbar-expand-lg navbar-light text-light">
-    <a class="navbar-brand" href="index.html"><img
-        class="w-25 h-25"
-        src="../../../assets/images/logo3.png"
-        alt="logo"
-        /></a>
-    <button class="navbar-toggler float-right" type="button" (click)="toggleNavbar=
-      !toggleNavbar" data-toggle="collapse" data-target="#navbarColor01"
-      aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle
-      navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor01"
-      [ngbCollapse]="toggleNavbar">
-      <ul class="navbar-nav mr-auto">
-        <li *ngIf="isAuthenticated()" class="fs-3 float-left ">
-          <a class="nav-link text-green fs-5 text-white" routerLink="/dashboard"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link text-white fs-7 " routerLink="/products"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Products</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white fs-7 " routerLink="/inputs"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Inputs</a>
-        </li>
-        <li class="nav-item" *ngIf="checkRole('farmer')">
-          <a class="nav-link text-white fs-7 " routerLink="/farms"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Farms</a>
-        </li>
-        <li class="nav-item" *ngIf="checkRole('supplier')">
-          <a class="nav-link text-white fs-7 " routerLink="/supply_shops"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Shops</a>
-        </li>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark border-round-bottom">
+    <div class="container">
+        <a class="navbar-brand me-2" [routerLink]="['/home']">
+            <img
+              src="../../../../../assets/images/logo3.png"
+              height="50"
+              alt="farmtorme Logo"
+              loading="lazy"
+              style="margin-top: -1px;"
+            />
+        </a>
+      <button 
+            class="navbar-toggler" type="button" 
+            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" 
+            aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center align-items-center gap-3">
 
-        <li class="nav-item">
-          <a class="nav-link text-white fs-7 " (click)="getMyOrders()" *ngIf="isAuthenticated()"
-            routerLinkActive="active" ariaCurrentWhenActive="page">
-            <i class="fas fa-shopping-cart table-hover"></i>
-          </a>
+          <!-- Dashboard -->
+          <li *ngIf="isAuthenticated()" class="fs-3 float-left ">
+            <a class="nav-link text-green fs-5 text-white" routerLink="/dashboard"
+              routerLinkActive="active" ariaCurrentWhenActive="page">Dashboard</a>
+          </li>
 
-        </li>
-        <!-- login and register -->
-        <li class="nav-item" *ngIf="!isAuthenticated()">
-          <a class="nav-link text-white fs-7 " routerLink="/login"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
-        </li>
-        <li class="nav-item" *ngIf="!isAuthenticated()">
-          <a class="nav-link text-white fs-7 " routerLink="/register"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Register</a>
-        </li>
-        <!-- logout -->
-        <li class="nav-item" *ngIf="isAuthenticated()">
-          <a class="nav-link text-white fs-7 " (click)="logout()"
-            routerLinkActive="active" ariaCurrentWhenActive="page">Logout</a>
-        </li>
-      </ul>
+          <!-- END -->
+
+            <li class="nav-item relative">
+              <a class="nav-link text-white" [routerLink]="['/home']" routerLinkActive="selected">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" [routerLink]="['/products']" routerLinkActive="selected">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" [routerLink]="['/inputs']" routerLinkActive="selected">Inputs</a>
+            </li>
+
+            <!-- This Extra sections will soon be replaced on the
+              component secton of the navbar with a function to check directlenly from the backend -->
+            <li class="nav-item" *ngIf="checkRole('farmer')">
+              <a class="nav-link text-white fs-7 " routerLink="/farms"
+                routerLinkActive="active" ariaCurrentWhenActive="page">Farms</a>
+            </li>
+            <li class="nav-item" *ngIf="checkRole('supplier')">
+              <a class="nav-link text-white fs-7 " routerLink="/supply_shops"
+                routerLinkActive="active" ariaCurrentWhenActive="page">Shops</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fs-7 " (click)="getMyOrders()" *ngIf="isAuthenticated()"
+                routerLinkActive="active" ariaCurrentWhenActive="page">
+                <i class="fas fa-shopping-cart table-hover"></i>
+              </a>
+            </li>
+            <!-- END -->
+
+
+            <!-- auth component -->
+            <li class="nav-item" *ngIf="!isAuthenticated()">
+              <a class="nav-link text-white" [routerLink]="['/login']" routerLinkActive="selected">Login</a>
+            </li>
+            <li class="nav-item" *ngIf="!isAuthenticated()">
+              <a class="nav-link text-white" [routerLink]="['/register']" routerLinkActive="selected">Register</a>
+            </li>
+
+            <!-- Logout -->
+            <li class="nav-item" *ngIf="isAuthenticated()">
+              <a class="nav-link text-white fs-7 " (click)="logout()"
+                routerLinkActive="active" ariaCurrentWhenActive="page">Logout</a>
+            </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </header>
-<router-outlet></router-outlet>
