@@ -37,27 +37,22 @@ const routes: Routes = [
   { path: 'orders', component: ViewOrdersComponent},
   { path: 'orders/place', component: PlaceOrderComponent },
 
-
   { 
     path: 'consumer', 
     loadChildren: () => import('./module/ft-consumer/ft-consumer.module').then(m => m.FtConsumerModule)
   },
-
   { 
     path: 'professional', 
     loadChildren: () => import('./module/professional/professional.module').then(m => m.ProfessionalModule)
   },
-
   { 
     path: 'farmer', 
     loadChildren: () => import('./module/farmer/farmer.module').then(m => m.FarmerModule)
   },
-
   { 
     path: 'auth', 
     loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule)
   },
-
   
   { path: '**', component: PageNotFoundComponent }
 ];
