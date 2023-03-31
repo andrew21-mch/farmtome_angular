@@ -37,23 +37,28 @@ const routes: Routes = [
   { path: 'orders', component: ViewOrdersComponent},
   { path: 'orders/place', component: PlaceOrderComponent },
 
+
   { 
     path: 'consumer', 
     loadChildren: () => import('./module/ft-consumer/ft-consumer.module').then(m => m.FtConsumerModule)
   },
-  {
+
+  { 
     path: 'professional', 
-    loadChildren: () => import('./module/ft-professional/ft-professional.module').then(m => m.FtProfessionalModule) 
+    loadChildren: () => import('./module/professional/professional.module').then(m => m.ProfessionalModule)
   },
-  {
+
+  { 
     path: 'farmer', 
-    loadChildren: () => import('./module/ft-farmer/ft-farmer.module').then(m => m.FtFarmerModule) 
+    loadChildren: () => import('./module/farmer/farmer.module').then(m => m.FarmerModule)
   },
+
   { 
     path: 'auth', 
-    loadChildren: () => import('./module/ft-auth/ft-auth.module').then(m => m.FtAuthModule)
-   },
- 
+    loadChildren: () => import('./module/auth/auth.module').then(m => m.AuthModule)
+  },
+
+  
   { path: '**', component: PageNotFoundComponent }
 ];
 
