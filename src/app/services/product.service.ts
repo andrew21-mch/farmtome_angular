@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 
-const product_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/products' : environment.host+'/api/v1/products';
+const product_route = `${environment.host}/products`;
 const httpOptions = {
   headers: new HttpHeaders(
     {
@@ -33,7 +33,7 @@ export class ProductService {
 
   getProduct(id: string) {
     return this.http.get(
-      product_route + '/' + id,
+      `${product_route}/id`,
       httpOptions
     );
   }
@@ -54,7 +54,7 @@ export class ProductService {
 
   edit(formData: FormData): Observable<any> {
     return this.http.post(
-      product_route + 'edit/' + formData.get('id'),
+      `${product_route}/edit/${formData.get('id')}`,
       {
         id: formData.get('id'),
         name: formData.get('name'),
@@ -68,7 +68,7 @@ export class ProductService {
 
   delete(id: string): Observable<any> {
     return this.http.delete(
-      product_route + '/' + id,
+      `${product_route}/id`,
       httpOptions
     )
   }

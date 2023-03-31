@@ -2,8 +2,8 @@ import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-const search_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/general-search/' : environment.host+'/api/v1/general-search/';
-const orders_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/orders' : environment.host+'/api/v1/orders';
+const search_route = `${environment.host}/general-search`;
+const orders_route = `${environment.host}/orders`;
 const httpOptions = {
   headers: new HttpHeaders(
     {
@@ -25,20 +25,20 @@ export class GeneralService {
 
   search(query: string) {
     return this.http.get(
-      search_route + query
+      `${search_route}/${query}`
     );
   }
 
   getOrders() {
     return this.http.get(
-      orders_route,
+      `${orders_route}`,
       httpOptions
     );
   }
 
   getMyOrders() {
     return this.http.get(
-      orders_route + '/user/get',
+      `${orders_route}/user/get`,
       httpOptions
     );
   }

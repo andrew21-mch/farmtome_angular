@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 
-const order_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/orders' : environment.host+'/api/v1/orders/';
+const order_route = `${environment.host}/orders`;
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -27,7 +27,7 @@ export class OrderServiceService {
 
   placeOrder(formData: FormData): Observable<any> {
     return this.http.post(
-      order_route,
+      `${order_route}`,
       {
         delivery_method: formData.get('delivery_method'),
         delivery_address: formData.get('delivery_address'),
@@ -43,7 +43,7 @@ export class OrderServiceService {
 
   deleteOrder(id: string): Observable<any> {
     return this.http.delete(
-      environment.production ? order_route + '/' + id : order_route + id,
+      `${order_route}/${id}`,
       httpOptions
     )
   }

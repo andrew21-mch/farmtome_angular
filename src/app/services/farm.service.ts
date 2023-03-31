@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Farm } from '../models/farm';
 
-const farm_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/farms' : environment.host+'/api/v1/farms/';
+const farm_route = `${environment.host}/farms`;
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -31,7 +31,7 @@ export class FarmService {
   farms: Farm | undefined
   create(formData: FormData): Observable<any> {
     return this.http.post(
-      farm_route,
+      `${farm_route}`,
       {
         name: formData.get('name'),
         location: formData.get('location'),
@@ -43,7 +43,7 @@ export class FarmService {
 
   edit(id: string, name: string, location: string, image: string): Observable<any> {
     return this.http.post(
-      farm_route + 'edit/' + id,
+      `${farm_route}/edit/${id}`,
       {
         id,
         name,
@@ -56,32 +56,28 @@ export class FarmService {
 
   delete(id: string): Observable<any> {
     return this.http.delete(
-      environment.production ?
-      farm_route + '/' + id :
-      farm_route + id,
+      `${farm_route}/${id}`,
       httpOptions
     );
   }
 
   getFarm(id: string){
     return this.http.get(
-      farm_route + 'get/' + id,
+      `${farm_route}/get/${id}`,
       httpOptions
     );
   }
 
   getAllFarms(): Observable<any> {
     return this.http.get(
-      farm_route + 'all',
+      `${farm_route}/all`,
       httpOptions
     );
   }
 
   getUserFarms() {
     return this.http.get(
-       environment.production ?
-       farm_route + '/user/' + localStorage.getItem('id') :
-       farm_route + 'user/' + localStorage.getItem('id'),
+      `${farm_route}/user/${localStorage.getItem('id')}`,
       httpOptions
     )
   }
