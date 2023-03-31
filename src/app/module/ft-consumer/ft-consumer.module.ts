@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { FtConsumerRoutingModule } from './ft-consumer-routing.module';
 import { FtConsumerComponent } from './ft-consumer.component';
-import { FtReusableModule } from '../ft-reusable/ft-reusable.module';
 import { FtSharedModule } from '../ft-shared/ft-shared.module';
 
 
@@ -14,7 +13,6 @@ import { FtSharedModule } from '../ft-shared/ft-shared.module';
   imports: [
     CommonModule,
     FtConsumerRoutingModule,
-    FtReusableModule,
     FtSharedModule
   ]
 })
