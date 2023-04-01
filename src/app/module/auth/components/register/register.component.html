@@ -1,1 +1,117 @@
-<p>register works!</p>
+<div class="text-center mb-5">
+    <div class="text-900 text-3xl font-medium mb-3">Register</div>
+    <span class="text-600 font-medium line-height-3">Have an account already?</span>
+    <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer" [routerLink]="['/auth/login']">login</a>
+</div>
+
+<form [formGroup]="registerForm" (ngSubmit)="isValidForm() && signUpActiont()">
+    <div class="form-group">
+        <label for="name" class="block text-900 font-medium mb-2">Name</label>
+        <input id="name" type="text" placeholder="John Smith" pInputText minlength="3" maxlength="20" class="w-full mb-3" required formControlName="name">
+        <!-- validation error -->
+        <div *ngIf="registerForm.get('name')?.invalid && 
+        registerForm.get('name')?.errors && 
+        (registerForm.get('name')?.dirty || registerForm.get('name')?.touched)">
+            <small class="text-danger"
+                *ngIf="registerForm.get('name')?.hasError('required')">
+                Name is required.
+            </small>
+            <small class="text-danger"
+                *ngIf="registerForm.get('name')?.hasError('minlength')">
+                The minimum length for this field is 3 characters.
+            </small>
+            <small class="text-danger"
+                *ngIf="registerForm.get('name')?.hasError('maxlength')">
+                The maximum length for this field is 20 characters.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="block text-900 font-medium mb-2">Email</label>
+        <input id="email" type="email" placeholder="johnsmith@gmail.com" pInputText minlength="3" maxlength="20" class="w-full mb-3" required formControlName="email">
+        <!-- validation error for email -->
+        <div *ngIf="registerForm.get('email')?.invalid &&
+        registerForm.get('email')?.errors && 
+        (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+            <small class="text-danger"
+                *ngIf="registerForm.get('email')?.hasError('required')">
+                Email is required. <br>
+            </small>
+            <small class="text-danger " 
+            *ngIf="registerForm.get('email')?.errors">
+                Email must be a valid email address
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone" class="block text-900 font-medium mb-2">Phone</label>
+        <input id="phone" type="tel" placeholder="+237 615 254 256" pInputText minlength="3" maxlength="20" class="w-full mb-3" required formControlName="phone">
+        <!-- validation error for phone -->
+        <div *ngIf="registerForm.get('phone')?.invalid &&
+        registerForm.get('phone')?.errors && 
+        (registerForm.get('phone')?.dirty || registerForm.get('phone')?.touched)">
+            <small class="text-danger"
+                *ngIf="registerForm.get('phone')?.hasError('required')">
+                Phone is required. <br>
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="location" class="block text-900 font-medium mb-2">Location</label>
+        <input id="location" type="text" pInputText placeholder="Bamenda - Cameroon" minlength="3" maxlength="20" class="w-full mb-3" required formControlName="location">
+        <!-- validation error for location -->
+        <div *ngIf="registerForm.get('location')?.invalid &&
+        registerForm.get('location')?.errors && 
+        (registerForm.get('location')?.dirty || registerForm.get('location')?.touched)">
+            <small class="text-danger"
+                *ngIf="registerForm.get('location')?.hasError('required')">
+                Location is required. <br>
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="password" class="block text-900 font-medium mb-2">Password</label>
+        <input id="password" type="password" placeholder="Password" pInputText class="w-full mb-3" required formControlName="password">
+        <!-- validation error for password -->
+        <div *ngIf="registerForm.get('password')?.invalid &&
+        registerForm.get('password')?.errors && 
+        (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+            <small class="text-danger"
+                *ngIf="registerForm.get('password')?.hasError('required')">
+                Password is required. <br>
+            </small>
+            <small class="text-danger"
+                *ngIf="registerForm.get('password')?.hasError('minlength')">
+                The minimum length for this field is 6 characters.
+            </small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirmPass" class="block text-900 font-medium mb-2">Confirm Password</label>
+        <input id="confirmPass" type="password"  placeholder="Confirm Password" pInputText class="w-full mb-3" required formControlName="confirmPassword">
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid &&
+        registerForm.get('confirmPassword')?.errors && 
+        (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.dirty)">
+            <small class="text-danger">
+                Incorrect password
+            </small>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <button pButton pRipple [disabled]="!isValidForm() || registerForm.invalid" type="submit" label="Sign Up" icon="pi pi-user-plus" class="w-full bg-color-green text-bold mt-2"></button>
+    </div>
+
+    <div class="alert alert-warning" *ngIf="registerForm.invalid && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+
+</form>
+<div class="alert alert-success" *ngIf="isSuccessful">
+    Your registration is successful!
+</div>
