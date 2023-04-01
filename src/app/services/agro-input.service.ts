@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const agro_inputs_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/AgroInputs' : environment.host+'/api/v1/AgroInputs';
+const agro_inputs_route = environment.host;
 
 const httpOptions = {
   headers: new HttpHeaders(
@@ -27,21 +27,21 @@ export class AgroInputService {
 
   getInputs() {
     return this.http.get(
-      agro_inputs_route,
+      `${agro_inputs_route}/AgroInputs`,
       httpOptions
     );
   }
 
   getInput(id: string) {
     return this.http.get(
-      agro_inputs_route + '/' + id,
+      `${agro_inputs_route}/AgroInputs/${id}`,
       httpOptions
     );
   }
 
   create(formData: FormData): Observable<any> {
     return this.http.post(
-      agro_inputs_route,
+      `${agro_inputs_route}/AgroInputs`,
       {
         name: formData.get('name'),
         description: formData.get('description'),
@@ -55,7 +55,7 @@ export class AgroInputService {
 
   edit(formData: FormData): Observable<any> {
     return this.http.post(
-      agro_inputs_route + 'edit/' + formData.get('id'),
+      `${agro_inputs_route}/AgroInputs/edit/${formData.get('id')}`,
       {
         id: formData.get('id'),
         name: formData.get('name'),
@@ -69,14 +69,14 @@ export class AgroInputService {
 
   delete(id: string): Observable<any> {
     return this.http.delete(
-      agro_inputs_route + '/' + id,
+      `${agro_inputs_route}/AgroInputs/${id}`,
       httpOptions
     )
   }
 
   getUserShops() {
     return this.http.get(
-      agro_inputs_route + '/user' + localStorage.getItem('id'),
+      `${agro_inputs_route}/AgroInputs/user/${localStorage.getItem('id')}`,
       httpOptions
     );
   }

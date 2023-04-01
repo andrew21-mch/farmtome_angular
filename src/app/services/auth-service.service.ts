@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const auth_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/auth/' : environment.host+'/api/v1/auth/';
-const logout_route = environment.production ? 'https://farmtome.herokuapp.com/api/v1/users/' : environment.host+'/api/v1/users/';
+const auth_route = `${environment.host}/auth`;
+const logout_route = `${environment.host}/users`;
 const httpOptions = {
   headers: new HttpHeaders(
     {
@@ -26,7 +26,7 @@ export class AuthServiceService {
 
   login(email: string, password: string): Observable<any> {
     return this.http.post(
-      auth_route + 'login',
+      `${auth_route}/login`,
       {
         email,
         password,
@@ -38,7 +38,7 @@ export class AuthServiceService {
 
   register(name: string, email: string, phone: string, password: string, location: string): Observable<any> {
     return this.http.post(
-      auth_route + 'register',
+      `${auth_route}/login`,
       {
         name,
         email,
@@ -51,7 +51,7 @@ export class AuthServiceService {
   }
 
   logout(): Observable<any> {
-    return this.http.post(logout_route + 'logout',
+    return this.http.post(`${logout_route}/logout`,
       {
         token: localStorage.getItem('token')
       },

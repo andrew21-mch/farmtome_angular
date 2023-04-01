@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // get localhost ip address by running `ipconfig getifaddr en0` in terminal
-  host : 'http://192.168.0.167:8000'
+  host : 'http://192.168.0.167:8000/api/v1'
 
 };
 

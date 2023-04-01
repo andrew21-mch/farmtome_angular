@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { FtConsumerRoutingModule } from './ft-consumer-routing.module';
-import { FtConsumerComponent } from './ft-consumer.component';
+import { ProfessionalRoutingModule } from './professional-routing.module';
+import { ProfessionalComponent } from './professional.component';
 import { FtSharedModule } from '../ft-shared/ft-shared.module';
 
 
 @NgModule({
   declarations: [
-    FtConsumerComponent
+    ProfessionalComponent
   ],
   imports: [
     CommonModule,
-    FtConsumerRoutingModule,
+    ProfessionalRoutingModule,
     FtSharedModule
   ]
 })
-export class FtConsumerModule { }
+export class ProfessionalModule { }

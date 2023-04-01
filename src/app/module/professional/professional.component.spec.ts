@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FtProfessionalComponent } from './ft-professional.component';
+import { ProfessionalComponent } from './professional.component';
 
-describe('FtProfessionalComponent', () => {
-  let component: FtProfessionalComponent;
-  let fixture: ComponentFixture<FtProfessionalComponent>;
+describe('ProfessionalComponent', () => {
+  let component: ProfessionalComponent;
+  let fixture: ComponentFixture<ProfessionalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FtProfessionalComponent ]
+      declarations: [ ProfessionalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FtProfessionalComponent);
+    fixture = TestBed.createComponent(ProfessionalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
