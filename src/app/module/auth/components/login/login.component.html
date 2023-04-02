@@ -19,5 +19,5 @@
         <a [routerLink]="['/auth/forget-password']" class="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">Forgot password?</a>
     </div>
 
-    <button pButton pRipple type="submit" label="Sign In" icon="pi pi-user" class="w-full bg-color-green text-bold"></button>
+    <button pButton [disabled]="isValidForm()" pRipple type="submit" label="Sign In" icon="pi pi-user" class="w-full bg-color-green text-bold"></button>
 </form>

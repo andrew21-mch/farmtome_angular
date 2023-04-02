@@ -37,4 +37,8 @@ export class LoginComponent implements OnInit {
     console.log(userLogin)
   }
 
+  isValidForm() {
+    return this.loginForm.get('password')?.invalid
+  }
+
 }
