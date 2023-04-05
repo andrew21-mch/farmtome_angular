@@ -31,25 +31,28 @@
       novalidate
       *ngIf="!isSuccessful">
 
-      <div class="form-row">
+      <div class="row mb-3 gap-2 sm-6">
         <div class="col-md-7">
           <input type="text" class="form-control" placeholder="Search keyword"
             [(ngModel)]="form.searchTerm" name="searchTerm"
             id="searchTerm" #searchTerm="ngModel">
         </div>
-        <div class="col-md">
-          <select class="form-control" id="category"
-            [(ngModel)]="form.category" name="category"
-            id="category" #category="ngModel"
-            (change)="generalSearch()"
-            label="Category">
-            <option value="all" selected>All</option>
-            <option value="farm">Farm</option>
-            <option value="input">Input</option>
-          </select>
+        <div class="col-md d-flex justify-content-center align-items-center gap-3 " >
+          <label for="inputState" class="form-label">Categories</label>
+            <select 
+                id="inputState" 
+                class="form-select" 
+                [(ngModel)]="form.category" 
+                name="category" 
+                #category="ngModel"
+                (change)="generalSearch()">
+              <option value="all" selected>All</option>
+              <option value="farm">Farm</option>
+              <option value="input">Input</option>
+            </select>
         </div>
-        <div class="col-md">
-          <button class="btn btn-warning" type="button"
+        <div class="col-md px-2">
+          <button class="btn btn-warning text-white" type="button"
             (click)="generalSearch()"
             id="button-addon2">Search</button>
         </div>
