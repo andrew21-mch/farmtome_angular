@@ -35,3 +35,10 @@ body {
 .border-round-bottom {
     border-bottom-right-radius: 50px !important;
 }
+.text-warning {
+    color: #3d826d !important;
+}
+
+a{
+    text-decoration: none;
+}
