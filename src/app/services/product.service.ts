@@ -33,7 +33,7 @@ export class ProductService {
 
   getProduct(id: string) {
     return this.http.get(
-      `${product_route}/id`,
+      `${product_route}/`+`${id}`,
       httpOptions
     );
   }

@@ -20,7 +20,6 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productid = localStorage.getItem('productid') || '';
-    console.log(this.productid)
     this.getProduct();
 
   }
