@@ -38,7 +38,7 @@ export class AuthServiceService {
 
   register(name: string, email: string, phone: string, password: string, location: string): Observable<any> {
     return this.http.post(
-      `${auth_route}/login`,
+      `${auth_route}/register`,
       {
         name,
         email,
