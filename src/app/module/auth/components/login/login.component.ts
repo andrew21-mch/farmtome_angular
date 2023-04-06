@@ -12,10 +12,9 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
 export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
-
-  isSuccessful = false;
-  isSignUpFailed = false;
-  errorMessage = '';
+  isSuccessful: boolean = false;
+  isSignUpFailed: boolean = false;
+  errorMessage: string = ``;
 
 
   constructor(
@@ -23,6 +22,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthServiceService,
   ) {
+
   }
 
   ngOnInit(): void {
@@ -41,22 +41,22 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.get('email')?.value,
       password: this.loginForm.get('password')?.value
     }
-      this.authService.login(userLogin.email, userLogin.password).subscribe({
-        next: data => {
-          this.isSuccessful = true;
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('id', data.user.id);
-          localStorage.setItem('user', JSON.stringify(data.user));
-          this.router.navigateByUrl('/dashboard')
-          this.isSignUpFailed = false;
-        },
-        error: err => {
-          this.errorMessage = err.error.message;
-          this.isSignUpFailed = true;
-        }
-      });
+    this.authService.login(userLogin.email, userLogin.password).subscribe({
+      next: data => {
+        this.isSuccessful = true;
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('id', data.user.id);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        this.router.navigateByUrl('/dashboard')
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
   }
 
   isValidForm() {

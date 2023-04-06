@@ -20,4 +20,10 @@
     </div>
 
     <button pButton pRipple [disabled]="isValidForm()" type="submit" label="Sign In" icon="pi pi-user" class="w-full bg-color-green text-bold"></button>
+    <div class="alert alert-warning" *ngIf="loginForm.invalid && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+    </div>
 </form>
+<div class="alert alert-success" *ngIf="isSuccessful">
+    login is successful!
+</div>
