@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
       confirmPassword: this.registerForm.get('confirmPassword')?.value
     }
 ;
-    console.log(name, email, phone, location, password)
     this.authService.register(name, email, phone, password, location).subscribe({
       next: data => {
         console.log(data);
