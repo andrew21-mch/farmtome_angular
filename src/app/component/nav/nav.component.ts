@@ -32,7 +32,7 @@ export class NavComponent implements OnInit {
         console.log(data);
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.router.navigateByUrl('/login');
+        this.router.navigateByUrl('/auth/login');
       }
     });
   }
